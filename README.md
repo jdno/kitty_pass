@@ -30,6 +30,19 @@ version. You do not have to use Capistrano, but we recommend it for most environ
 **Please note that we cannot help you with the installation of KittyPass. We try to provide as much instructions and
 examples as we can, but we are simply not able to support every user individually.**
 
+## Configuration
+
+Most of **KittyPass'** configuration is done via environment variables. Here is a list of all the variables you should
+set. If you do not want to use environment variables, the files are listed as well so you can overwrite them during
+deployment:
+
+- */config/database.yml*
+    - KITTYPASS_DB_DATABASE
+    - KITTYPASS_DB_USERNAME
+    - KITTYPASS_DB_PASSWORD
+- */config/secrets.yml*
+    - SECRET_KEY_BASE
+
 ## Updates
 
 Depending on your installation, you can either update the application with Capistrano, or manually. In both cases keep
