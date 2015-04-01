@@ -1,14 +1,14 @@
 # KittyPass
 
-**KittyPass** is a little web-based password manager for *BlueCat Networks'* DHCP/DNS server. It is designed for teams
-that don't want to use a full-blown CMDB, but need to share passwords and other important information about their
-servers.
+**KittyPass** is a little web-based password manager for [BlueCat Networks'](https://www.bluecatnetworks.com) DHCP/DNS
+server. It is designed for teams that don't want to use a full-blown CMDB, but need to share passwords and other
+important information about their servers.
 
 One speciality of **KittyPass** is its API, which enables other tools to update the data automatically.
 
 # Usage
 
-**KittyPass** is a *Ruby on Rails* application, which can be customized to fit your needs.
+**KittyPass** is a [Ruby on Rails](https://rubyonrails.org) application, which can be customized to fit your needs.
 
 ## Customization
 
@@ -20,12 +20,13 @@ places where customization is necessary or recommended.
 
 To keep your secrets and keys private, this application relies heavily on environment variables. Depending on your
 deployment, you either want to provide those environment variables, or overwrite the respective configuration files
-during the deployment. Using Capistrano, this would be done with shared configuration files.
+during the deployment. Using [Capistrano](http://capistranorb.com), this would be done with shared configuration files.
 
 ## Installation
 
-**KittyPass** has a dummy configuration for Capistrano, which is set up to make use of *.rbenv* to select the right Ruby
-version. You do not have to use Capistrano, but we recommend it for most environments.
+**KittyPass** has a dummy configuration for [Capistrano](http://capistranorb.com), which is set up to make use of
+[.rbenv](http://rbenv.org) to select the right Ruby version. You do not have to use
+[Capistrano](http://capistranorb.com), but we recommend it for most environments.
 
 **Please note that we cannot help you with the installation of KittyPass. We try to provide as much instructions and
 examples as we can, but we are simply not able to support every user individually.**
@@ -45,8 +46,8 @@ deployment:
 
 ## Updates
 
-Depending on your installation, you can either update the application with Capistrano, or manually. In both cases keep
-in mind that you may need to run migrations.
+Depending on your installation, you can either update the application with [Capistrano](http://capistranorb.com), or
+manually. In both cases keep in mind that you may need to run migrations.
 
 # Development
 
@@ -73,7 +74,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
