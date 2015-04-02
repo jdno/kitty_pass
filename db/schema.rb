@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401204340) do
+ActiveRecord::Schema.define(version: 20150401214151) do
+
+  create_table "adonis", force: :cascade do |t|
+    t.string   "hostname"
+    t.string   "identifier"
+    t.string   "serial_number"
+    t.string   "inventory_number"
+    t.string   "root_password"
+    t.string   "admin_password"
+    t.string   "deploy_password"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "adonis", ["hostname"], name: "index_adonis_on_hostname", unique: true
+  add_index "adonis", ["identifier"], name: "index_adonis_on_identifier", unique: true
 
   create_table "locations", force: :cascade do |t|
     t.string   "name",       default: "", null: false
