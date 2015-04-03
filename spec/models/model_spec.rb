@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Model, type: :model do
-  before { @model = Model.new(name: 'Adonis', eol: Date.new(2017,04,01)) }
+  before { @model = Model.new(name: 'Adonis', eol: Date.new(2017, 04, 01)) }
   subject { @model }
 
   context 'validations' do
