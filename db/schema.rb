@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401214151) do
+ActiveRecord::Schema.define(version: 20150403185755) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -35,5 +35,14 @@ ActiveRecord::Schema.define(version: 20150401214151) do
   end
 
   add_index "locations", ["name"], name: "index_locations_on_name", unique: true
+
+  create_table "models", force: :cascade do |t|
+    t.string   "name"
+    t.date     "eol"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "models", ["name"], name: "index_models_on_name", unique: true
 
 end
