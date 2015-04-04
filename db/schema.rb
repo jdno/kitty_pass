@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403185755) do
+ActiveRecord::Schema.define(version: 20150403190650) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150403185755) do
     t.string   "deploy_password"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "models_id"
   end
 
   add_index "adonis", ["hostname"], name: "index_adonis_on_hostname", unique: true

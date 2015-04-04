@@ -21,6 +21,8 @@ class Adonis < ActiveRecord::Base
   validates :root_password,
             presence: true
 
+  belongs_to :model
+
   before_save do
     hostname.downcase!
     identifier.upcase!
