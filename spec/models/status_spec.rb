@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Status, type: :model do
-  before { @status = Status.new(name: 'Test') }
+  before { @status = Status.new(name: 'Test', description: 'This is a test status.') }
   subject { @status }
 
   context 'validations' do
     it { should respond_to :name }
+    it { should respond_to :description }
     it { should be_valid }
   end
 
