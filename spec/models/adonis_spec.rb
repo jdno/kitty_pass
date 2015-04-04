@@ -23,6 +23,7 @@ RSpec.describe Adonis, type: :model do
     it { should respond_to :admin_password }
     it { should respond_to :deploy_password }
     it { should respond_to :model }
+    it { should respond_to :status }
     it { should be_valid }
   end
 

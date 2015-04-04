@@ -22,6 +22,7 @@ class Adonis < ActiveRecord::Base
             presence: true
 
   belongs_to :model
+  belongs_to :status
 
   before_save do
     hostname.downcase!
