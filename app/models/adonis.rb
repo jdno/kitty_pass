@@ -24,6 +24,8 @@ class Adonis < ActiveRecord::Base
   belongs_to :model
   belongs_to :status
 
+  has_many :network_interfaces, as: :networkable, inverse_of: :networkable, dependent: :destroy
+
   before_save do
     hostname.downcase!
     identifier.upcase!

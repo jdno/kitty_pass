@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  network_interface:
+    ipv4_address:
+      invalid_format: 'The IPv4 address has an invalid format. Expected format: 192.168.1.1'
+    ipv4_netmask:
+      invalid_format: 'The IPv4 netmask has an invalid format. Expected format: 255.255.255.0'
+    ipv6_address:
+      invalid_format: 'The IPv6 address has an invalid format. Please check your input.'

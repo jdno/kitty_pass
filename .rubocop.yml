@@ -5,6 +5,7 @@ AllCops:
       - 'config/**/*'
       - 'db/**/*'
       - 'spec/spec_helper.rb'
+      - 'spec/factories/**/*'
 
 Metrics/LineLength:
   Max: 120

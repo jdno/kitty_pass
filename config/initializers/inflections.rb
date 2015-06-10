@@ -16,4 +16,7 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.uncountable %w(Adonis Proteus)
+
+  inflect.acronym 'IPv4'
+  inflect.acronym 'IPv6'
 end

@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Use fixed version to ensure compatibility
 gem 'rails', '4.2.1'
 
+# Validate IP addresses
+gem 'ipaddress', '~> 0.8.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404153336) do
+ActiveRecord::Schema.define(version: 20150610075148) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(version: 20150404153336) do
   end
 
   add_index "models", ["name"], name: "index_models_on_name", unique: true
+
+  create_table "network_interfaces", force: :cascade do |t|
+    t.string   "name"
+    t.string   "mac_address"
+    t.string   "ipv4_address"
+    t.string   "ipv4_netmask"
+    t.string   "ipv6_address"
+    t.integer  "ipv6_prefix"
+    t.integer  "networkable_id"
+    t.string   "networkable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "network_interfaces", ["name", "networkable_id", "networkable_type"], name: "index_network_interfaces", unique: true
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
