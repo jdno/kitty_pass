@@ -20,10 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  adonis:
+    ipv4_gateway:
+      invalid_format: 'The IPv4 gateway has an invalid format. Expected format: 192.168.1.254'
+    ipv6_gateway:
+      invalid_format: 'The IPv6 gateway has an invalid format. Please check your input.'
   network_interface:
     ipv4_address:
+      incomplete: 'Both the IPv4 address and its netmask must be entered. Please check your input.'
       invalid_format: 'The IPv4 address has an invalid format. Expected format: 192.168.1.1'
     ipv4_netmask:
       invalid_format: 'The IPv4 netmask has an invalid format. Expected format: 255.255.255.0'
     ipv6_address:
+      incomplete: 'Both the IPv6 address and its pefi must be entered. Please check your input.'
       invalid_format: 'The IPv6 address has an invalid format. Please check your input.'

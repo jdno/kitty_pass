@@ -40,6 +40,11 @@ RSpec.describe NetworkInterface, type: :model do
     it { should be_valid }
   end
 
+  describe 'without an IPv4 address' do
+    before { @interface.ipv4_address = @interface.ipv4_netmask = '' }
+    it { should be_valid }
+  end
+
   describe 'with an IPv4 address in invalid format' do
     it 'should not be valid' do
       invalid_addresses = %w(1 2.2 3.3.3 4.4.4.4. 5.5.5.5.5 a.b.c.d 1-2-3-4)
@@ -70,6 +75,11 @@ RSpec.describe NetworkInterface, type: :model do
     it { should_not be_valid }
   end
 
+  describe 'without an IPv6 address' do
+    before { @interface.ipv6_address = @interface.ipv6_prefix = nil }
+    it { should be_valid }
+  end
+
   describe 'with an IPv6 address in invalid format' do
     it 'should not be valid' do
       invalid_addresses = %w(ff02::ff::1)
@@ -87,10 +97,10 @@ RSpec.describe NetworkInterface, type: :model do
 
   describe 'with an IPv6 prefix in invalid format' do
     it 'should not be valid' do
-      invalid_prefixs = %w(2.2 4.4.4.4 a)
+      invalid_prefixs = %w(-1 129)
       invalid_prefixs.each do |prefix|
         @interface.ipv6_prefix = prefix
-        expect(@inteface).to_not be_valid
+        expect(@interface).to_not be_valid
       end
     end
   end
