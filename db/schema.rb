@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610090348) do
+ActiveRecord::Schema.define(version: 20150610101902) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -63,6 +63,23 @@ ActiveRecord::Schema.define(version: 20150610090348) do
   end
 
   add_index "network_interfaces", ["name", "networkable_id", "networkable_type"], name: "index_network_interfaces", unique: true
+
+  create_table "proteus", force: :cascade do |t|
+    t.string   "hostname"
+    t.string   "identifier"
+    t.string   "serial_number"
+    t.string   "inventory_number"
+    t.string   "root_password"
+    t.string   "ipv4_gateway"
+    t.string   "ipv6_gateway"
+    t.integer  "model_id"
+    t.integer  "status_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "proteus", ["hostname"], name: "index_proteus_on_hostname", unique: true
+  add_index "proteus", ["identifier"], name: "index_proteus_on_identifier", unique: true
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
