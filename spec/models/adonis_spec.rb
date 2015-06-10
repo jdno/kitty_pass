@@ -1,17 +1,8 @@
 require 'rails_helper'
+require_relative '../support/factory_girl'
 
 RSpec.describe Adonis, type: :model do
-  before do
-    @adonis = Adonis.new(
-      hostname:         'adonis1.example.com',
-      identifier:       'DNS1',
-      serial_number:    'SERIAL0123',
-      inventory_number: 'INVENTORY0',
-      root_password:    'root',
-      admin_password:   'admin',
-      deploy_password:  'deploy'
-    )
-  end
+  before { @adonis = build :adonis }
   subject { @adonis }
 
   context 'validations' do
