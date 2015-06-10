@@ -1,3 +1,5 @@
+require 'ipaddress'
+
 # Adonis are BlueCat Network's DHCP/DNS server, and are typically the most common server type. Adonis are identified
 # by both an hostname and an identifier, both of which must be unique. While the hostname should be pretty
 # self-explanatory, the identifier can be used to assign a unique name to a server for internal referencing.
@@ -21,6 +23,8 @@ class Adonis < ActiveRecord::Base
   validates :root_password,
             presence: true
 
+  validate :validate_ipv4_gateway, :validate_ipv6_gateway
+
   belongs_to :model
   belongs_to :status
 
@@ -29,5 +33,17 @@ class Adonis < ActiveRecord::Base
   before_save do
     hostname.downcase!
     identifier.upcase!
+  end
+
+  private
+
+  def validate_ipv4_gateway
+    return if ipv4_gateway.blank? || IPAddress.valid_ipv4?(ipv4_gateway)
+    errors.add :ipv4_gateway, I18n.t('adonis.ipv4_gateway.invalid_format')
+  end
+
+  def validate_ipv6_gateway
+    return if ipv6_gateway.blank? || IPAddress.valid_ipv6?(ipv6_gateway)
+    errors.add :ipv6_gateway, I18n.t('adonis.ipv6_gateway.invalid_format')
   end
 end

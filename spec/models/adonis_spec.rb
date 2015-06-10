@@ -22,8 +22,12 @@ RSpec.describe Adonis, type: :model do
     it { should respond_to :root_password }
     it { should respond_to :admin_password }
     it { should respond_to :deploy_password }
+    it { should respond_to :ipv4_gateway }
+    it { should respond_to :ipv6_gateway }
+
     it { should respond_to :model }
     it { should respond_to :status }
+
     it { should be_valid }
   end
 
@@ -100,5 +104,35 @@ RSpec.describe Adonis, type: :model do
   describe 'without a root password' do
     before { @adonis.root_password = '' }
     it { should_not be_valid }
+  end
+
+  describe 'without an IPv4 gateway' do
+    before { @adonis.ipv4_gateway = '' }
+    it { should be_valid }
+  end
+
+  describe 'with an IPv4 gateway in invalid format' do
+    it 'should not be valid' do
+      invalid_gateways = %w(1 2.2 3.3.3 4.4.4.4. 5.5.5.5.5 a.b.c.d 1-2-3-4)
+      invalid_gateways.each do |gateway|
+        @adonis.ipv4_gateway = gateway
+        expect(@adonis).to_not be_valid
+      end
+    end
+  end
+
+  describe 'without an IPv6 gateway' do
+    before { @adonis.ipv6_gateway = '' }
+    it { should be_valid }
+  end
+
+  describe 'with an IPv6 gateway in invalid format' do
+    it 'should not be valid' do
+      invalid_gateways = %w(ff02::ff::1)
+      invalid_gateways.each do |gateway|
+        @adonis.ipv6_gateway = gateway
+        expect(@adonis).to_not be_valid
+      end
+    end
   end
 end
