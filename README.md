@@ -43,6 +43,8 @@ deployment:
     - KITTYPASS_DB_PASSWORD
 - */config/secrets.yml*
     - SECRET_KEY_BASE
+- */config/environments/production.rb*
+    - KITTYPASS_URL    
 
 ## Updates
 

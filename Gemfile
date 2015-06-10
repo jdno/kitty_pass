@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 # Use fixed version to ensure compatibility
 gem 'rails', '4.2.1'
 
+# Authentication is provided by devise
+gem 'devise', '~> 3.5.1'
+
 # Validate IP addresses
 gem 'ipaddress', '~> 0.8.0'
 
