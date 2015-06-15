@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../support/factory_girl'
 
 RSpec.describe NetworkInterface, type: :model do
   before { @interface = build :network_interface }

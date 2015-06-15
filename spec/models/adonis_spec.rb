@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../support/factory_girl'
 
 RSpec.describe Adonis, type: :model do
   before { @adonis = build :adonis }

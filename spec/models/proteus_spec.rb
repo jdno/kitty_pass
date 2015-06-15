@@ -1,5 +1,4 @@
 require 'rails_helper'
-require_relative '../support/factory_girl'
 
 RSpec.describe Proteus, type: :model do
   before { @proteus = build :proteus }
