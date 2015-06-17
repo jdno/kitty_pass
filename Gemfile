@@ -12,6 +12,9 @@ gem 'ipaddress', '~> 0.8.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+# Normalize CSS
+gem 'normalize-rails', '~> 3.0'
+
 # Use the Bourbon family as the CSS library
 gem 'bourbon', '~> 4.2'
 gem 'neat', '~> 1.7'
