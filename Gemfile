@@ -12,6 +12,11 @@ gem 'ipaddress', '~> 0.8.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
+# Use the Bourbon family as the CSS library
+gem 'bourbon', '~> 4.2'
+gem 'neat', '~> 1.7'
+gem 'bitters', '~> 1.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
