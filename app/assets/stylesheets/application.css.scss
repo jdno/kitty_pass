@@ -13,11 +13,24 @@
  *= require normalize-rails
  *= require_self
  */
-@import 'bourbon';
-@import 'base/base';
-@import 'neat';
+@import "bourbon";
+@import "base/base";
+@import "neat";
 
-@import 'navigation';
+@import "article";
+@import "flash";
+@import "navigation";
+@import "tables";
+
+article {
+  h3 {
+    margin-top: 2em;
+  }
+}
+
+.button {
+  @include button;
+}
 
 #content {
   @include outer-container;

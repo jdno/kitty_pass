@@ -1,0 +1,114 @@
+<% provide :title, @adonis.hostname %>
+
+<article>
+  <h1><%= @adonis.hostname %></h1>
+  <p>
+    <%= link_to t('views.adonis.edit'), edit_adonis_path(@adonis), class: 'button' %>
+    <%= link_to t('views.adonis.delete'),
+                adonis_path(@adonis), confirm: t('views.adonis.confirm_delete', hostname: @adonis.hostname),
+                method: :delete, class: 'button' %>
+  </p>
+
+  <h3><%= t 'models.adonis.interfaces' %></h3>
+  <% if @adonis.network_interfaces.empty? %>
+      <div class="flash-notice">
+        <span>
+          <%= t 'views.adonis.no_network_interfaces' %>
+          <%= link_to t('views.network_interface.create'), adonis_index_path %>
+        </span>
+      </div>
+  <% else %>
+      <table class="tables">
+        <thead>
+        <tr>
+          <th><%= t 'models.network_interface.name' %></th>
+          <th><%= t 'models.network_interface.mac_address' %></th>
+          <th><%= t 'models.network_interface.ipv4_address.base' %></th>
+          <th><%= t 'models.network_interface.ipv6_address.base' %></th>
+          <th><%= t 'views.options' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @adonis.network_interfaces.each do |interface| %>
+            <tr>
+              <td><%= interface.name %></td>
+              <td><%= interface.mac_address %></td>
+              <td><%= interface.ipv4_address %> (<%= interface.ipv4_netmask%>)</td>
+              <td><%= interface.ipv6_address %>/<%= interface.ipv6_prefix %></td>
+              <td></td>
+            </tr>
+        <% end %>
+  <% end %>
+  </tbody>
+  </table>
+
+  <h3>Gateways</h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.adonis.ipv4_gateway.base' %></th>
+      <th><%= t 'models.adonis.ipv6_gateway.base' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @adonis.ipv4_gateway %></td>
+      <td><%= @adonis.ipv6_gateway %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'models.adonis.passwords.base' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.adonis.passwords.root' %></th>
+      <th><%= t 'models.adonis.passwords.admin' %></th>
+      <th><%= t 'models.adonis.passwords.deploy' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @adonis.root_password %></td>
+      <td><%= @adonis.admin_password %></td>
+      <td><%= @adonis.deploy_password %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.details' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'views.key' %></th>
+      <th><%= t 'views.value' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>ID</td>
+      <td><%= @adonis.id %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.identifier' %></td>
+      <td><%= @adonis.identifier %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.inventory_number' %></td>
+      <td><%= @adonis.inventory_number %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.model' %></td>
+      <td><%= @adonis.model.name if @adonis.model.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.status' %></td>
+      <td><%= @adonis.status.name if @adonis.status.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'views.last_update' %></td>
+      <td><%= l @adonis.updated_at, format: :long %></td>
+    </tr>
+    </tbody>
+  </table>
+</article>

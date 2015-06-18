@@ -1,0 +1,2 @@
+module AdonisHelper
+end

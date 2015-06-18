@@ -1,0 +1,6 @@
+<% provide :title, t('views.edit_object', object: @adonis.hostname) %>
+
+<article>
+  <h1><%= t 'views.edit_object', object: @adonis.hostname %></h1>
+  <%= render 'adonis/form', adonis: @adonis %>
+</article>

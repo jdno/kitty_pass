@@ -1,0 +1,36 @@
+<%= form_for adonis ||= Adonis.new do |f| %>
+    <%= f.label :id %>
+    <%= f.text_field :id, disabled: true %>
+
+    <%= f.label :hostname %>
+    <%= f.text_field :hostname %>
+
+    <%= f.label :identifier %>
+    <%= f.text_field :identifier %>
+
+    <%= f.label :inventory_number %>
+    <%= f.text_field :inventory_number %>
+
+    <%= f.label :model %>
+    <%= select_tag :model_id, options_for_select(Model.includes(:name, :id).all) %>
+
+    <%= f.label :status %>
+    <%= select_tag :status_id, options_for_select(Status.includes(:name, :id).all) %>
+
+    <%= f.label :ipv4_gateway %>
+    <%= f.text_field :ipv4_gateway %>
+
+    <%= f.label :ipv6_gateway %>
+    <%= f.text_field :ipv6_gateway %>
+
+    <%= f.label :root_password %>
+    <%= f.text_field :root_password %>
+
+    <%= f.label :admin_password %>
+    <%= f.text_field :admin_password %>
+
+    <%= f.label :deploy_password %>
+    <%= f.text_field :deploy_password %>
+
+    <%= f.submit t 'views.save' %>
+<% end %>
