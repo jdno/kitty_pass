@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'settings', to: 'static_pages#settings'
 
   resources :adonis
+  resources :models, except: [:index, :show]
 end
