@@ -14,10 +14,10 @@
     <%= f.text_field :inventory_number %>
 
     <%= f.label :model %>
-    <%= select_tag :model_id, options_for_select(Model.includes(:name, :id).all) %>
+    <%= select_tag :model_id, options_from_collection_for_select(Model.all, 'id', 'name', adonis.model) %>
 
     <%= f.label :status %>
-    <%= select_tag :status_id, options_for_select(Status.includes(:name, :id).all) %>
+    <%= select_tag :status_id, options_from_collection_for_select(Status.all, 'id', 'name', adonis.status) %>
 
     <%= f.label :ipv4_gateway %>
     <%= f.text_field :ipv4_gateway %>
