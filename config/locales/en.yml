@@ -22,10 +22,10 @@
 en:
   controllers:
     adonis_controller:
-        create_successful: 'The new Adonis server has successfully been created.'
-        destroy_successful: 'The Adonis server has successfully been removed.'
+        create_successful: 'The new Adonis server has been created successfully.'
+        destroy_successful: 'The Adonis server has been removed successfully.'
         unknown_id: 'No server with the given ID exists.'
-        update_successful: 'The Adonis server has successfully been updated.'
+        update_successful: 'The Adonis server has been updated successfully.'
 
   models:
     adonis:
