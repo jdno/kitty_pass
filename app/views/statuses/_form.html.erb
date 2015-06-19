@@ -1,0 +1,11 @@
+<%= form_for status ||= Status.new do |f| %>
+    <% if status.id %>
+        <%= f.label :id %>
+        <%= f.text_field :id, disabled: true %>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit t 'views.save' %>
+<% end %>

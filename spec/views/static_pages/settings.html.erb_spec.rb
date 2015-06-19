@@ -21,7 +21,7 @@ RSpec.describe 'static_pages/settings.html.erb', type: :view do
   end
 
   it 'has a link to create a new model' do
-    expect(rendered).to have_link new_model_path
+    expect(rendered).to have_link 'Create new model', new_model_path
   end
 
   it 'lists all statuses' do
@@ -31,6 +31,6 @@ RSpec.describe 'static_pages/settings.html.erb', type: :view do
   end
 
   it 'has a link to create a new status' do
-    expect(rendered).to have_link new_status_path
+    expect(rendered).to have_link 'Create new status', new_status_path
   end
 end

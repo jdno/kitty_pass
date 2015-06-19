@@ -33,6 +33,12 @@ en:
       unknown_id: 'No model with the given ID exists.'
       update_successful: 'The model has been updated successfully.'
 
+    statuses_controller:
+      create_successful: 'The new status has been created successfully.'
+      destroy_successful: 'The status has been removed successfully.'
+      unknown_id: 'No status with the given ID exists.'
+      update_successful: 'The status has been updated successfully.'
+
   models:
     adonis:
       hostname: 'Hostname'
@@ -97,6 +103,7 @@ en:
 
     statuses:
       create: 'Create new status'
+      edit: 'Edit status'
 
     details: 'Details'
     edit_object: "Edit %{object}"
