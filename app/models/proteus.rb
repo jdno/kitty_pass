@@ -40,11 +40,11 @@ class Proteus < ActiveRecord::Base
 
   def ipv4_gateway_has_valid_format
     return if ipv4_gateway.blank? || IPAddress.valid_ipv4?(ipv4_gateway)
-    errors.add :ipv4_gateway, I18n.t('adonis.ipv4_gateway.invalid_format')
+    errors.add :ipv4_gateway, I18n.t('models.adonis.ipv4_gateway.invalid_format')
   end
 
   def ipv6_gateway_has_valid_format
     return if ipv6_gateway.blank? || IPAddress.valid_ipv6?(ipv6_gateway)
-    errors.add :ipv6_gateway, I18n.t('adonis.ipv6_gateway.invalid_format')
+    errors.add :ipv6_gateway, I18n.t('models.adonis.ipv6_gateway.invalid_format')
   end
 end

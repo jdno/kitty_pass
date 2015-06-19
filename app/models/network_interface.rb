@@ -20,26 +20,26 @@ class NetworkInterface < ActiveRecord::Base
 
   def ipv4_address_and_netmask_present
     return if (ipv4_address.blank? && ipv4_netmask.blank?) || (ipv4_address.present? && ipv4_netmask.present?)
-    errors.add :ipv4_address, I18n.t('network_interface.ipv4_address.incomplete')
+    errors.add :ipv4_address, I18n.t('models.network_interface.ipv4_address.incomplete')
   end
 
   def ipv4_address_has_valid_format
     return if ipv4_address.blank? || IPAddress.valid_ipv4?(ipv4_address)
-    errors.add :ipv4_address, I18n.t('network_interface.ipv4_address.invalid_format')
+    errors.add :ipv4_address, I18n.t('models.network_interface.ipv4_address.invalid_format')
   end
 
   def ipv4_netmask_has_valid_format
     return if ipv4_netmask.blank? || IPAddress.valid_ipv4_netmask?(ipv4_netmask)
-    errors.add :ipv4_netmask, I18n.t('network_interface.ipv4_netmask.invalid_format')
+    errors.add :ipv4_netmask, I18n.t('models.network_interface.ipv4_netmask.invalid_format')
   end
 
   def ipv6_address_and_prefix_present
     return if (ipv6_address.blank? && ipv6_prefix.blank?) || (ipv6_address.present? && ipv6_prefix.present?)
-    errors.add :ipv6_address, I18n.t('network_interface.ipv6_address.incomplete')
+    errors.add :ipv6_address, I18n.t('models.network_interface.ipv6_address.incomplete')
   end
 
   def ipv6_address_has_valid_format
     return if ipv6_address.blank? || IPAddress.valid_ipv6?(ipv6_address)
-    errors.add :ipv6_address, I18n.t('network_interface.ipv6_address.invalid_format')
+    errors.add :ipv6_address, I18n.t('models.network_interface.ipv6_address.invalid_format')
   end
 end
