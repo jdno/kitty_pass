@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150610125838) do
+ActiveRecord::Schema.define(version: 20150619100306) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150610125838) do
     t.string   "deploy_password"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "models_id"
-    t.integer  "statuses_id"
+    t.integer  "model_id"
+    t.integer  "status_id"
     t.string   "ipv4_gateway"
     t.string   "ipv6_gateway"
   end
