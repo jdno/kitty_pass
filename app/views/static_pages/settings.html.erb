@@ -1,0 +1,53 @@
+<% provide :title, t('views.settings.base') %>
+
+<article>
+  <h1><%= t 'views.settings.base' %></h1>
+  <p><%= t 'views.settings.description' %></p>
+
+  <h3><%= t 'models.model.base' %></h3>
+  <p><%= t 'views.settings.models' %></p>
+
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'views.name' %></th>
+      <th><%= t 'models.model.eol' %></th>
+      <th><%= t 'views.options' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @models.each do |model| %>
+        <tr>
+          <td><%= model.name %></td>
+          <td><%= model.eol %></td>
+          <td></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <p><%= link_to t('views.models.create'), new_adonis_path, class: 'button' %></p>
+
+  <h3><%= t 'models.status' %></h3>
+  <p><%= t 'views.settings.statuses' %></p>
+
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'views.name' %></th>
+      <th><%= t 'views.options' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @statuses.each do |status| %>
+        <tr>
+          <td><%= status.name %></td>
+          <td></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <p><%= link_to t('views.statuses.create'), new_adonis_path, class: 'button' %></p>
+</article>
+

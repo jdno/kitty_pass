@@ -46,7 +46,9 @@ en:
         root:   'Root password'
       status: 'Status'
 
-    model: 'Model'
+    model:
+      base: 'Model'
+      eol: 'End of life'
 
     network_interface:
       ipv4_address:
@@ -62,7 +64,6 @@ en:
         invalid_format: 'The IPv6 address has an invalid format. Please check your input.'
       ipv6_prefix: 'IPv6 prefix'
       mac_address: 'MAC address'
-      name: 'Name'
 
     status: 'Status'
 
@@ -75,13 +76,26 @@ en:
       index_description: 'This page lists all Adonis servers.'
       no_network_interfaces: 'This server does not have any network interfaces.'
 
+    models:
+      create: 'Create new model'
+
     network_interface:
       create: 'Create a new network interface'
+
+    settings:
+      base: 'Settings'
+      description: 'This page allows to manage a few resources and customize global configuration parameters.'
+      models: 'The following list contains all available server models, allowing you to edit or delete them.'
+      statuses: 'The following list contains all available statuses, allowing you to edit or delete them.'
+
+    statuses:
+      create: 'Create new status'
 
     details: 'Details'
     edit_object: "Edit %{object}"
     key: 'Key'
     last_update: 'Last update'
+    name: 'Name'
     options: 'Options'
     save: 'Save'
     value: 'Value'
