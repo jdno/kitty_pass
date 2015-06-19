@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
-
   describe 'GET #settings' do
     before do
       @models = 5.times.collect { create :model }
@@ -26,5 +25,4 @@ RSpec.describe StaticPagesController, type: :controller do
       expect(response).to have_http_status :success
     end
   end
-
 end
