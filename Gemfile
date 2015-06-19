@@ -57,7 +57,7 @@ group :development, :test do
   gem 'capybara'
 
   # Write feature specs in plain text with Cucumber
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
 
   # Create dummy objects with FactoryGirl: https://github.com/thoughtbot/factory_girl
   gem 'factory_girl'
