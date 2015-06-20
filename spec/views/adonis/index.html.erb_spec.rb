@@ -19,6 +19,6 @@ RSpec.describe 'adonis/index.html.erb', type: :view do
   end
 
   it 'has a link to create a new Adonis server' do
-    expect(rendered).to have_link t('views.adonis.create'), new_adonis_path
+    expect(rendered).to have_link t('views.application.create', resource: 'Adonis'), new_adonis_path
   end
 end

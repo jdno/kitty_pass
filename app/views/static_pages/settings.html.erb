@@ -1,18 +1,18 @@
-<% provide :title, t('views.settings.base') %>
+<% provide :title, t('views.static_pages.settings.title') %>
 
 <article>
-  <h1><%= t 'views.settings.base' %></h1>
-  <p><%= t 'views.settings.description' %></p>
+  <h1><%= t 'views.static_pages.settings.title' %></h1>
+  <p><%= t 'views.static_pages.settings.description' %></p>
 
-  <h3><%= t 'models.model.base' %></h3>
-  <p><%= t 'views.settings.models' %></p>
+  <h3><%= t 'models.adonis.model' %></h3>
+  <p><%= t 'views.static_pages.settings.models' %></p>
 
   <table class="tables">
     <thead>
     <tr>
-      <th><%= t 'views.name' %></th>
-      <th><%= t 'models.model.eol' %></th>
-      <th><%= t 'views.options' %></th>
+      <th><%= t 'models.models.name' %></th>
+      <th><%= t 'models.models.eol' %></th>
+      <th><%= t 'views.application.options' %></th>
     </tr>
     </thead>
     <tbody>
@@ -26,16 +26,16 @@
     </tbody>
   </table>
 
-  <p><%= link_to t('views.models.create'), new_model_path, class: 'button' %></p>
+  <p><%= link_to t('views.application.create', resource: 'model'), new_model_path, class: 'button' %></p>
 
-  <h3><%= t 'models.status' %></h3>
-  <p><%= t 'views.settings.statuses' %></p>
+  <h3><%= t 'models.adonis.status' %></h3>
+  <p><%= t 'views.static_pages.settings.statuses' %></p>
 
   <table class="tables">
     <thead>
     <tr>
-      <th><%= t 'views.name' %></th>
-      <th><%= t 'views.options' %></th>
+      <th><%= t 'models.status.name' %></th>
+      <th><%= t 'views.application.options' %></th>
     </tr>
     </thead>
     <tbody>
@@ -48,6 +48,6 @@
     </tbody>
   </table>
 
-  <p><%= link_to t('views.statuses.create'), new_status_path, class: 'button' %></p>
+  <p><%= link_to t('views.application.create', resource: 'status'), new_status_path, class: 'button' %></p>
 </article>
 

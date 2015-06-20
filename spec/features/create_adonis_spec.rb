@@ -16,7 +16,7 @@ RSpec.feature 'Create Adonis', type: :feature do
     end
 
     expect(page).to have_css 'div.flash-success'
-    expect(page).to have_content I18n.t 'controllers.adonis_controller.create_successful'
+    expect(page).to have_content I18n.t 'controllers.application.create.successful', resource: 'Adonis'
   end
 
   scenario 'User leaves out required input fields' do

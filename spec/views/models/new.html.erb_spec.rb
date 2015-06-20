@@ -10,6 +10,6 @@ RSpec.describe 'models/new.html.erb', type: :view do
   end
 
   it 'provides a text field to set the EOL date' do
-    expect(rendered).to have_field t 'models.model.eol'
+    expect(rendered).to have_field t 'models.models.eol'
   end
 end

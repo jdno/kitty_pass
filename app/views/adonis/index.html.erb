@@ -1,8 +1,8 @@
 <article>
   <h1>Adonis</h1>
-  <p><%= t 'views.adonis.index_description' %></p>
+  <p><%= t 'views.adonis.index.description' %></p>
 
-  <p><%= link_to t('views.adonis.create'), new_adonis_path, class: 'button' %></p>
+  <p><%= link_to t('views.application.create', resource: 'Adonis'), new_adonis_path, class: 'button' %></p>
 
   <table class="tables">
     <thead>
@@ -10,7 +10,7 @@
       <th>ID</th>
       <th><%= t 'models.adonis.hostname' %></th>
       <th><%= t 'models.adonis.status' %></th>
-      <th><%= t 'models.adonis.passwords.root' %></th>
+      <th><%= t 'models.adonis.root_password' %></th>
       <th><%= t 'models.adonis.identifier' %></th>
     </tr>
     </thead>

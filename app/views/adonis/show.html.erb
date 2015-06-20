@@ -3,29 +3,29 @@
 <article>
   <h1><%= @adonis.hostname %></h1>
   <p>
-    <%= link_to t('views.adonis.edit'), edit_adonis_path(@adonis), class: 'button' %>
-    <%= link_to t('views.adonis.delete'),
-                adonis_path(@adonis), confirm: t('views.adonis.confirm_delete', hostname: @adonis.hostname),
+    <%= link_to t('views.application.edit', resource: 'Adonis'), edit_adonis_path(@adonis), class: 'button' %>
+    <%= link_to t('views.application.delete', resource: 'Adonis'),
+                adonis_path(@adonis), confirm: t('views.adonis.show.confirm_delete', hostname: @adonis.hostname),
                 method: :delete, class: 'button' %>
   </p>
 
-  <h3><%= t 'models.adonis.interfaces' %></h3>
+  <h3><%= t 'models.adonis.network_interfaces' %></h3>
   <% if @adonis.network_interfaces.empty? %>
       <div class="flash-notice">
         <span>
-          <%= t 'views.adonis.no_network_interfaces' %>
-          <%= link_to t('views.network_interface.create'), adonis_index_path %>
+          <%= t 'views.adonis.show.no_network_interfaces' %>
+          <%= link_to t('views.application.create', resource: 'network interface'), adonis_index_path %>
         </span>
       </div>
   <% else %>
       <table class="tables">
         <thead>
         <tr>
-          <th><%= t 'models.network_interface.name' %></th>
-          <th><%= t 'models.network_interface.mac_address' %></th>
-          <th><%= t 'models.network_interface.ipv4_address.base' %></th>
-          <th><%= t 'models.network_interface.ipv6_address.base' %></th>
-          <th><%= t 'views.options' %></th>
+          <th><%= t 'models.network_interfaces.name' %></th>
+          <th><%= t 'models.network_interfaces.mac_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv4_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv6_address' %></th>
+          <th><%= t 'views.application.options' %></th>
         </tr>
         </thead>
         <tbody>
@@ -46,8 +46,8 @@
   <table class="tables">
     <thead>
     <tr>
-      <th><%= t 'models.adonis.ipv4_gateway.base' %></th>
-      <th><%= t 'models.adonis.ipv6_gateway.base' %></th>
+      <th><%= t 'models.adonis.ipv4_gateway' %></th>
+      <th><%= t 'models.adonis.ipv6_gateway' %></th>
     </tr>
     </thead>
     <tbody>
@@ -58,13 +58,13 @@
     </tbody>
   </table>
 
-  <h3><%= t 'models.adonis.passwords.base' %></h3>
+  <h3><%= t 'views.application.passwords' %></h3>
   <table class="tables">
     <thead>
     <tr>
-      <th><%= t 'models.adonis.passwords.root' %></th>
-      <th><%= t 'models.adonis.passwords.admin' %></th>
-      <th><%= t 'models.adonis.passwords.deploy' %></th>
+      <th><%= t 'models.adonis.root_password' %></th>
+      <th><%= t 'models.adonis.admin_password' %></th>
+      <th><%= t 'models.adonis.deploy_password' %></th>
     </tr>
     </thead>
     <tbody>
@@ -76,12 +76,12 @@
     </tbody>
   </table>
 
-  <h3><%= t 'views.details' %></h3>
+  <h3><%= t 'views.application.details' %></h3>
   <table class="tables">
     <thead>
     <tr>
-      <th><%= t 'views.key' %></th>
-      <th><%= t 'views.value' %></th>
+      <th><%= t 'views.application.key' %></th>
+      <th><%= t 'views.application.value' %></th>
     </tr>
     </thead>
     <tbody>
@@ -98,15 +98,15 @@
       <td><%= @adonis.inventory_number %></td>
     </tr>
     <tr>
-      <td><%= t 'models.model' %></td>
+      <td><%= t 'models.adonis.model' %></td>
       <td><%= @adonis.model.name if @adonis.model.present? %></td>
     </tr>
     <tr>
-      <td><%= t 'models.status' %></td>
+      <td><%= t 'models.adonis.status' %></td>
       <td><%= @adonis.status.name if @adonis.status.present? %></td>
     </tr>
     <tr>
-      <td><%= t 'views.last_update' %></td>
+      <td><%= t 'views.application.last_update' %></td>
       <td><%= l @adonis.updated_at, format: :long %></td>
     </tr>
     </tbody>

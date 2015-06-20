@@ -13,7 +13,7 @@ RSpec.feature 'Edit Adonis', type: :feature do
     end
 
     expect(page).to have_css 'div.flash-success'
-    expect(page).to have_content I18n.t 'controllers.adonis_controller.update_successful'
+    expect(page).to have_content I18n.t 'controllers.application.update.successful', identifier: 'changed.example.com'
   end
 
   scenario 'User fills out the form incorrectly' do

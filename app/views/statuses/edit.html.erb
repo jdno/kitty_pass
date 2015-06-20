@@ -1,6 +1,6 @@
-<% provide :title, t('views.statuses.edit') %>
+<% provide :title, t('views.application.edit', resource: @status.name) %>
 
 <article>
-  <h1><%= t 'views.statuses.edit' %></h1>
+  <h1><%= t 'views.application.edit', resource: @status.name %></h1>
   <%= render 'statuses/form', status: @status %>
 </article>

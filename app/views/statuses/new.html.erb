@@ -1,6 +1,6 @@
-<% provide :title, t('views.statuses.create') %>
+<% provide :title, t('views.application.create', resource: 'status') %>
 
 <article>
-  <h1><%= t 'views.statuses.create' %></h1>
+  <h1><%= t 'views.application.create', resource: 'status' %></h1>
   <%= render partial: 'statuses/form' %>
 </article>

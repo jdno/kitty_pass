@@ -46,6 +46,6 @@ RSpec.describe 'adonis/new.html.erb', type: :view do
   end
 
   it 'provides a save button' do
-    expect(rendered).to have_button t('views.save')
+    expect(rendered).to have_button t('views.application.save')
   end
 end

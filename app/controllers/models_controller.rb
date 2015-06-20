@@ -5,7 +5,7 @@ class ModelsController < ApplicationController
     @model = Model.new model_params
 
     if @model.save
-      flash[:success] = t 'controllers.models_controller.create_successful'
+      flash[:success] = t 'controllers.application.create.successful', resource: 'model'
       redirect_to settings_path
     else
       flash[:error] = @model.errors.full_messages
@@ -18,7 +18,7 @@ class ModelsController < ApplicationController
     return redirect_model_not_found unless @model
 
     if @model.destroy
-      flash[:success] = t 'controllers.models_controller.destroy_successful'
+      flash[:success] = t 'controllers.application.destroy.successful', resource: 'model'
     else
       flash[:error] = @model.errors.full_messages
     end
@@ -39,7 +39,7 @@ class ModelsController < ApplicationController
     return redirect_model_not_found unless @model
 
     if @model.update_attributes model_params
-      flash[:success] = t 'controllers.models_controller.update_successful'
+      flash[:success] = t 'controllers.application.update.successful', identifier: @model.name
       redirect_to settings_path
     else
       flash[:error] = @model.errors.full_messages
@@ -54,7 +54,7 @@ class ModelsController < ApplicationController
   end
 
   def redirect_model_not_found
-    flash[:error] = t 'controllers.models_controller.unknown_id'
+    flash[:error] = t 'controllers.application.access.not_found', resource: 'model'
     redirect_to settings_path
   end
 end

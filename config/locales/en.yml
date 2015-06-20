@@ -21,95 +21,67 @@
 
 en:
   controllers:
-    adonis_controller:
-      create_successful: 'The new Adonis server has been created successfully.'
-      destroy_successful: 'The Adonis server has been removed successfully.'
-      unknown_id: 'No server with the given ID exists.'
-      update_successful: 'The Adonis server has been updated successfully.'
-
-    models_controller:
-      create_successful: 'The new model has been created successfully.'
-      destroy_successful: 'The model has been removed successfully.'
-      unknown_id: 'No model with the given ID exists.'
-      update_successful: 'The model has been updated successfully.'
-
-    statuses_controller:
-      create_successful: 'The new status has been created successfully.'
-      destroy_successful: 'The status has been removed successfully.'
-      unknown_id: 'No status with the given ID exists.'
-      update_successful: 'The status has been updated successfully.'
+    application:
+      access:
+        not_found: 'The requested %{resource} could not be found.'
+      create:
+        successful: 'The %{resource} has been created successfully.'
+      destroy:
+        successful: 'The %{resource} has been deleted successfully.'
+      update:
+        successful: '%{identifier} has been updated successfully.'
 
   models:
+    application:
+      invalid_format: 'The %{attribute} has an invalid format. Expected format: %{expected}'
     adonis:
+      admin_password: 'Admin password'
+      deploy_password: 'Deploy password'
       hostname: 'Hostname'
       identifier: 'Identifier'
-      interfaces: 'Network interfaces'
       inventory_number: 'Inventory number'
-      ipv4_gateway:
-        base: 'IPv4 gateway'
-        invalid_format: 'The IPv4 gateway has an invalid format. Expected format: 192.168.1.254'
-      ipv6_gateway:
-        base: 'IPv6 gateway'
-        invalid_format: 'The IPv6 gateway has an invalid format. Please check your input.'
-      passwords:
-        base: 'Passwords'
-        admin:  'Admin password'
-        deploy: 'Deploy password'
-        root:   'Root password'
+      ipv4_gateway: 'IPv4 gateway'
+      ipv6_gateway: 'IPv6 gateway'
+      model: 'Model'
+      network_interfaces: 'Network interfaces'
+      root_password: 'Root password'
       status: 'Status'
-
-    model:
-      base: 'Model'
+    models:
+      name: 'Name'
       eol: 'End of life'
-
-    network_interface:
-      ipv4_address:
-        base: 'IPv4 address'
-        incomplete: 'Both the IPv4 address and its netmask must be entered. Please check your input.'
-        invalid_format: 'The IPv4 address has an invalid format. Expected format: 192.168.1.1'
-      ipv4_netmask:
-        base: 'IPv4 netmask'
-        invalid_format: 'The IPv4 netmask has an invalid format. Expected format: 255.255.255.0'
-      ipv6_address:
-        base: 'IPv6 address'
-        incomplete: 'Both the IPv6 address and its pefi must be entered. Please check your input.'
-        invalid_format: 'The IPv6 address has an invalid format. Please check your input.'
+    network_interfaces:
+      ipv4_address: 'IPv4 address'
+      ipv4_netmask: 'IPv4 netmask'
+      ipv6_address: 'IPv6 address'
       ipv6_prefix: 'IPv6 prefix'
       mac_address: 'MAC address'
-
-    status: 'Status'
+      name: 'Name'
+      validations:
+        incomplete: 'Both %{attribute1} and %{attribute2} must be entered.'
+    status:
+      name: 'Name'
 
   views:
+    application:
+      create: 'Create new %{resource}'
+      delete: 'Delete %{resource}'
+      details: 'Details'
+      edit: 'Edit %{resource}'
+      key: 'Key'
+      last_updated: 'Last updated'
+      options: 'Options'
+      passwords: 'Passwords'
+      save: 'Save'
+      value: 'Value'
     adonis:
-      confirm_delete: 'Are you sure you want to delete %{hostname}?'
-      create: 'Create new Adonis'
-      delete: 'Delete Adonis'
-      edit: 'Edit Adonis'
-      index_description: 'This page lists all Adonis servers.'
-      no_network_interfaces: 'This server does not have any network interfaces.'
-
-    models:
-      create: 'Create new model'
-      edit: 'Edit model'
-
-    network_interface:
-      create: 'Create a new network interface'
-
-    settings:
-      base: 'Settings'
-      description: 'This page allows to manage a few resources and customize global configuration parameters.'
-      models: 'The following list contains all available server models, allowing you to edit or delete them.'
-      statuses: 'The following list contains all available statuses, allowing you to edit or delete them.'
-
-    statuses:
-      create: 'Create new status'
-      edit: 'Edit status'
-
-    details: 'Details'
-    edit_object: "Edit %{object}"
-    key: 'Key'
-    last_update: 'Last update'
-    name: 'Name'
-    options: 'Options'
-    save: 'Save'
-    value: 'Value'
+      index:
+        description: 'This page lists all Adonis servers.'
+      show:
+        confirm_delete: 'Please confirm that you want to delete %{hostname}.'
+        no_network_interfaces: 'This server does not have any network interfaces.'
+    static_pages:
+      settings:
+        description: 'This page allows to manage a few resources and customize global configuration parameters.'
+        models: The following list contains all available server models, allowing you to edit or delete them.
+        statuses: 'The following list contains all available statuses, allowing you to edit or delete them.'
+        title: 'Settings'

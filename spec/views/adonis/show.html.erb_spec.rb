@@ -15,11 +15,11 @@ RSpec.describe 'adonis/show.html.erb', type: :view do
   end
 
   it 'has a link to edit the server' do
-    expect(rendered).to have_link t('views.adonis.edit'), edit_adonis_path(@adonis)
+    expect(rendered).to have_link t('views.application.edit', resource: 'Adonis'), edit_adonis_path(@adonis)
   end
 
   it 'has a link to delete the server' do
-    expect(rendered).to have_link t('views.adonis.delete'), adonis_path(@adonis)
+    expect(rendered).to have_link t('views.application.delete', resource: 'Adonis'), adonis_path(@adonis)
   end
 
   it 'lists the server\'s network interfaces' do

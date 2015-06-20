@@ -1,6 +1,6 @@
-<% provide :title, t('views.models.edit') %>
+<% provide :title, t('views.application.edit', resource: @model.name) %>
 
 <article>
-  <h1><%= t 'views.models.edit' %></h1>
+  <h1><%= t 'views.application.edit', resource: @model.name %></h1>
   <%= render 'models/form', model: @model %>
 </article>

@@ -5,7 +5,7 @@ class AdonisController < ApplicationController
     @adonis = Adonis.new adonis_params
 
     if @adonis.save
-      flash[:success] = t 'controllers.adonis_controller.create_successful'
+      flash[:success] = t 'controllers.application.create.successful', resource: 'Adonis'
       redirect_to adonis_path @adonis
     else
       flash[:error] = @adonis.errors.full_messages
@@ -18,7 +18,7 @@ class AdonisController < ApplicationController
     return redirect_adonis_not_found unless @adonis
 
     if @adonis.destroy
-      flash[:success] = t 'controllers.adonis_controller.destroy_successful'
+      flash[:success] = t 'controllers.application.destroy.successful', resource: 'Adonis'
       redirect_to adonis_index_path
     else
       flash[:error] = @adonis.errors.full_messages
@@ -48,7 +48,7 @@ class AdonisController < ApplicationController
     return redirect_adonis_not_found unless @adonis
 
     if @adonis.update_attributes adonis_params
-      flash[:success] = t 'controllers.adonis_controller.update_successful'
+      flash[:success] = t 'controllers.application.update.successful', identifier: @adonis.hostname
       redirect_to adonis_path @adonis
     else
       flash[:error] = @adonis.errors.full_messages
@@ -64,7 +64,7 @@ class AdonisController < ApplicationController
   end
 
   def redirect_adonis_not_found
-    flash[:error] = t 'controllers.adonis_controller.unknown_id'
+    flash[:error] = t 'controllers.application.access.not_found', resource: 'Adonis'
     redirect_to adonis_index_path
   end
 end
