@@ -51,6 +51,6 @@ RSpec.describe 'adonis/edit.html.erb', type: :view do
   end
 
   it 'provides a save button' do
-    expect(rendered).to have_button t('views.application.save'), adonis_path(@adonis)
+    expect(rendered).to have_button t('views.application.buttons.save'), adonis_path(@adonis)
   end
 end

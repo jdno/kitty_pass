@@ -31,6 +31,8 @@ RSpec.describe 'adonis/show.html.erb', type: :view do
       expect(rendered).to have_content interface.ipv4_netmask
       expect(rendered).to have_content interface.ipv6_address
       expect(rendered).to have_content interface.ipv6_prefix
+      expect(rendered).to have_link t('views.application.buttons.delete'), network_interface_path(interface)
+      expect(rendered).to have_link t('views.application.buttons.edit'), edit_network_interface_path(interface)
     end
   end
 

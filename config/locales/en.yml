@@ -64,6 +64,14 @@ en:
 
   views:
     application:
+      buttons:
+        create: 'Create'
+        delete: 'Delete'
+        edit: 'Edit'
+        new: 'New'
+        save: 'Save'
+      confirm_delete: 'Please confirm that you want to delete the %{resource} %{identifier}. The %{resource} cannot
+      be restored!'
       create: 'Create new %{resource}'
       delete: 'Delete %{resource}'
       details: 'Details'
@@ -72,7 +80,6 @@ en:
       last_updated: 'Last updated'
       options: 'Options'
       passwords: 'Passwords'
-      save: 'Save'
       server: 'Server'
       value: 'Value'
     adonis:

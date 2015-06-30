@@ -35,19 +35,36 @@
             <tr>
               <td><%= interface.name %></td>
               <td><%= interface.mac_address %></td>
-              <td><%= interface.ipv4_address %> (<%= interface.ipv4_netmask%>)</td>
-              <td><%= interface.ipv6_address %>/<%= interface.ipv6_prefix %></td>
-              <td></td>
+              <td>
+                <% if interface.ipv4_address.present? %>
+                    <%= interface.ipv4_address %> (<%= interface.ipv4_netmask%>)
+                <% end %>
+              </td>
+              <td>
+                <% if interface.ipv6_address.present? %>
+                    <%= interface.ipv6_address %>/<%= interface.ipv6_prefix %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_network_interface_path(interface), class: 'button' do %>
+                    <%= t 'views.application.buttons.edit' %>
+                <% end %>
+                <%= link_to t('views.application.buttons.delete'), network_interface_path(interface),
+                            confirm: t('views.application.confirm_delete',
+                                       resource: t('models.adonis.network_interface').downcase,
+                                       identifier: interface.name),
+                            method: :delete, class: 'button' %>
+              </td>
             </tr>
         <% end %>
         </tbody>
-        </table>
+      </table>
 
-        <p>
-          <%= link_to edit_adonis_path(@adonis), class: 'button' do %>
-              <%= t 'views.application.create', resource: t('models.adonis.network_interface') %>
-          <% end %>
-        </p>
+      <p>
+        <%= link_to edit_adonis_path(@adonis), class: 'button' do %>
+            <%= t 'views.application.create', resource: t('models.adonis.network_interface') %>
+        <% end %>
+      </p>
   <% end %>
 
   <h3>Gateways</h3>
