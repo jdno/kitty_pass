@@ -22,8 +22,8 @@ RSpec.describe NetworkInterfacesController, type: :controller do
 
       describe 'with valid data' do
         it 'creates the network interface' do
-          expect { post :create, adonis_id: @adonis.id, network_interface: { name: 'eth0' } }.
-              to change { NetworkInterface.count }.by 1
+          expect { post :create, adonis_id: @adonis.id, network_interface: { name: 'eth0' } }
+            .to change { NetworkInterface.count }.by 1
         end
 
         it 'adds a message' do
