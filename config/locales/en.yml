@@ -43,6 +43,7 @@ en:
       ipv4_gateway: 'IPv4 gateway'
       ipv6_gateway: 'IPv6 gateway'
       model: 'Model'
+      network_interface: 'Network interface'
       network_interfaces: 'Network interfaces'
       root_password: 'Root password'
       status: 'Status'
@@ -72,6 +73,7 @@ en:
       options: 'Options'
       passwords: 'Passwords'
       save: 'Save'
+      server: 'Server'
       value: 'Value'
     adonis:
       index:

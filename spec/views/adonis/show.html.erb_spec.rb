@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'adonis/show.html.erb', type: :view do
   before :all do
     @adonis = create :adonis
+    @adonis.network_interfaces << create(:network_interface)
     assign :adonis, @adonis
   end
 
@@ -31,6 +32,11 @@ RSpec.describe 'adonis/show.html.erb', type: :view do
       expect(rendered).to have_content interface.ipv6_address
       expect(rendered).to have_content interface.ipv6_prefix
     end
+  end
+
+  it 'has a link to create new interfaces' do
+    expect(rendered).to have_link t('views.application.create', resource: t('models.adonis.network_interface')),
+                                  network_interface_path(@adonis.network_interfaces.first)
   end
 
   it 'lists the server\'s IPv4 gateway' do

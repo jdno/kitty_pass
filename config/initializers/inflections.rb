@@ -20,4 +20,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.acronym 'ID'
   inflect.acronym 'IPv4'
   inflect.acronym 'IPv6'
+  inflect.acronym 'MAC'
 end

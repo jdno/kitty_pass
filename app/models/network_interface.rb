@@ -4,7 +4,7 @@ require 'ipaddress'
 # the server. They have an IPv4 and an IPv6 address as well as a MAC address, which are all validates before save.
 class NetworkInterface < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :networkable, case_sensitive: false }
-  validates :mac_address, format: { with: /\A([0-9A-F]{2}[:-]){5}([0-9A-F]{2})\z/i }
+  validates :mac_address, format: { with: /\A([0-9A-F]{2}[:-]){5}([0-9A-F]{2})\z/i }, allow_blank: true
   validates :ipv6_prefix, inclusion: { in: 0..128 }, allow_nil: true
   validates :networkable, presence: true
 

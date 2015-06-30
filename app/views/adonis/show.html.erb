@@ -14,7 +14,9 @@
       <div class="flash-notice">
         <span>
           <%= t 'views.adonis.show.no_network_interfaces' %>
-          <%= link_to t('views.application.create', resource: 'network interface'), adonis_index_path %>
+          <%= link_to new_adonis_network_interface_path @adonis do %>
+            <%= t('views.application.create', resource: 'network interface') %>
+          <% end %>
         </span>
       </div>
   <% else %>
@@ -38,9 +40,15 @@
               <td></td>
             </tr>
         <% end %>
+        </tbody>
+        </table>
+
+        <p>
+          <%= link_to edit_adonis_path(@adonis), class: 'button' do %>
+              <%= t 'views.application.create', resource: t('models.adonis.network_interface') %>
+          <% end %>
+        </p>
   <% end %>
-  </tbody>
-  </table>
 
   <h3>Gateways</h3>
   <table class="tables">
