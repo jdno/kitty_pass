@@ -7,6 +7,7 @@ RSpec.describe Status, type: :model do
   context 'validations' do
     it { should respond_to :name }
     it { should respond_to :description }
+    it { should respond_to :adonis }
     it { should be_valid }
   end
 

@@ -3,4 +3,6 @@
 # when support is going to end for the specific hardware version.
 class Model < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: true }
+
+  has_many :adonis
 end
