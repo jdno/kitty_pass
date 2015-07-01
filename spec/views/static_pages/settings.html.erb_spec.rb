@@ -17,6 +17,8 @@ RSpec.describe 'static_pages/settings.html.erb', type: :view do
     @models.each do |model|
       expect(rendered).to have_content model.name
       expect(rendered).to have_content model.eol
+      expect(rendered).to have_link 'Edit', edit_model_path(model)
+      expect(rendered).to have_link 'Delete', model_path(model)
     end
   end
 
