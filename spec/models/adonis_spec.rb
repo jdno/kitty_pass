@@ -15,6 +15,7 @@ RSpec.describe Adonis, type: :model do
     it { should respond_to :ipv4_gateway }
     it { should respond_to :ipv6_gateway }
 
+    it { should respond_to :location }
     it { should respond_to :model }
     it { should respond_to :status }
 

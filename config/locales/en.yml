@@ -42,6 +42,7 @@ en:
       inventory_number: 'Inventory number'
       ipv4_gateway: 'IPv4 gateway'
       ipv6_gateway: 'IPv6 gateway'
+      location: 'Location'
       model: 'Model'
       network_interface: 'Network interface'
       network_interfaces: 'Network interfaces'
