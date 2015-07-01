@@ -20,7 +20,16 @@
         <tr>
           <td><%= model.name %></td>
           <td><%= model.eol %></td>
-          <td></td>
+          <td>
+            <%= link_to edit_model_path(model), class: 'button' do %>
+                <%= t 'views.application.buttons.edit' %>
+            <% end %>
+            <%= link_to t('views.application.buttons.delete'), model_path(model),
+                        confirm: t('views.application.confirm_delete',
+                                   resource: t('models.adonis.model').downcase,
+                                   identifier: model.name),
+                        method: :delete, class: 'button' %>
+          </td>
         </tr>
     <% end %>
     </tbody>
@@ -42,7 +51,16 @@
     <% @statuses.each do |status| %>
         <tr>
           <td><%= status.name %></td>
-          <td></td>
+          <td>
+            <%= link_to edit_status_path(status), class: 'button' do %>
+                <%= t 'views.application.buttons.edit' %>
+            <% end %>
+            <%= link_to t('views.application.buttons.delete'), status_path(status),
+                        confirm: t('views.application.confirm_delete',
+                                   resource: t('models.adonis.status').downcase,
+                                   identifier: status.name),
+                        method: :delete, class: 'button' %>
+          </td>
         </tr>
     <% end %>
     </tbody>
