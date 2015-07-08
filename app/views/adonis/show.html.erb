@@ -123,6 +123,10 @@
       <td><%= @adonis.inventory_number %></td>
     </tr>
     <tr>
+      <td><%= t 'models.adonis.location' %></td>
+      <td><%= @adonis.loation.name if @adonis.location.present? %></td>
+    </tr>
+    <tr>
       <td><%= t 'models.adonis.model' %></td>
       <td><%= @adonis.model.name if @adonis.model.present? %></td>
     </tr>
@@ -131,7 +135,7 @@
       <td><%= @adonis.status.name if @adonis.status.present? %></td>
     </tr>
     <tr>
-      <td><%= t 'views.application.last_update' %></td>
+      <td><%= t 'views.application.last_updated' %></td>
       <td><%= l @adonis.updated_at, format: :long %></td>
     </tr>
     </tbody>

@@ -73,6 +73,10 @@ RSpec.describe 'adonis/show.html.erb', type: :view do
     expect(rendered).to have_content @adonis.inventory_number
   end
 
+  it 'lists the server\'s location' do
+    expect(rendered).to have_content @adonis.location.name if @adonis.location.present?
+  end
+
   it 'lists the server\'s model' do
     expect(rendered).to have_content @adonis.model.name if @adonis.model.present?
   end

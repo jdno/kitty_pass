@@ -23,6 +23,12 @@
                    options_from_collection_for_select(Status.all, 'id', 'name', adonis.status ? adonis.status.id : nil),
                    include_blank: true %>
 
+    <%= f.label :location %>
+    <%= select_tag :location_id,
+                   options_from_collection_for_select(Location.all, 'id', 'name', adonis.location ? adonis.location
+                                                                          .id : nil),
+                   include_blank: true %>
+
     <%= f.label :ipv4_gateway %>
     <%= f.text_field :ipv4_gateway %>
 
