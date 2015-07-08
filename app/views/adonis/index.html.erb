@@ -4,26 +4,5 @@
 
   <p><%= link_to t('views.application.create', resource: 'Adonis'), new_adonis_path, class: 'button' %></p>
 
-  <table class="tables">
-    <thead>
-    <tr>
-      <th><%= t 'models.adonis.hostname' %></th>
-      <th><%= t 'models.adonis.location' %></th>
-      <th><%= t 'models.adonis.status' %></th>
-      <th><%= t 'models.adonis.root_password' %></th>
-      <th><%= t 'models.adonis.identifier' %></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @adonis.each do |adonis| %>
-        <tr>
-          <td><%= link_to adonis.hostname, adonis_path(adonis) %></td>
-          <td><%= adonis.location.nil? ? '' : adonis.location.name %></td>
-          <td><%= adonis.status.nil? ? '' : adonis.status.name %></td>
-          <td><%= adonis.root_password %></td>
-          <td><%= link_to adonis.identifier, adonis_path(adonis) %></td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <%= render 'adonis/table', adonis: @adonis %>
 </article>

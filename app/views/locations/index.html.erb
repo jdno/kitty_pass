@@ -1,0 +1,29 @@
+<% provide :title, t('views.locations.index.title') %>
+
+<article>
+  <h1><%= t 'views.locations.index.title' %></h1>
+  <p><%= t 'views.locations.index.description' %></p>
+
+  <p>
+    <%= link_to new_location_path, class: 'button' do %>
+        <%= t 'views.application.create', resource: t('models.adonis.location') %>
+    <% end %>
+  </p>
+
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.locations.name' %></th>
+      <th># <%= t 'views.application.server' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @locations.each do |location| %>
+        <tr>
+          <td><%= link_to location.name, location_path(location) %></td>
+          <td><%= location.adonis.count %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</article>

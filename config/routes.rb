@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'settings', to: 'static_pages#settings'
 
   resources :adonis, concerns: :networkable
+  resources :locations
   resources :models, except: [:index, :show]
   resources :statuses, except: [:index, :show]
 end

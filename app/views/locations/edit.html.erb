@@ -1,0 +1,6 @@
+<% provide :title, t('views.application.edit', resource: t('models.adonis.location')) %>
+
+<article>
+  <h1><%= t 'views.application.edit', resource: t('models.adonis.location') %></h1>
+  <%= render 'locations/form', location: @location %>
+</article>

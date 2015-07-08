@@ -1,0 +1,28 @@
+<% provide :title, @location.name %>
+
+<article>
+  <h1><%= @location.name %></h1>
+  <p><%= t 'views.locations.show.description' %></p>
+  <p>
+    <%= link_to edit_location_path(@location), class: 'button' do %>
+        <%= t 'views.application.edit', resource: t('models.adonis.location') %>
+    <% end %>
+    <%= link_to t('views.application.delete', resource: t('models.adonis.location')), location_path(@location),
+                confirm: t('views.application.confirm_delete',
+                           resource: t('models.adonis.location'),
+                           identifier: @location.name),
+                method: :delete, class: 'button' %>
+  </p>
+
+  <h3>Adonis</h3>
+  <% if @location.adonis.empty? %>
+      <div class="flash-notice">
+        <span>
+          <%= t 'views.locations.show.no_adonis' %>
+          <%= link_to t('views.application.go_to', resource: 'Adonis'), adonis_index_path %>
+        </span>
+      </div>
+  <% else %>
+      <%= render 'adonis/table', adonis: @adonis %>
+  <% end %>
+</article>
