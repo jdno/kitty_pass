@@ -1,0 +1,22 @@
+<table class="tables">
+  <thead>
+  <tr>
+    <th><%= t 'models.proteus.hostname' %></th>
+    <th><%= t 'models.proteus.location' %></th>
+    <th><%= t 'models.proteus.status' %></th>
+    <th><%= t 'models.proteus.root_password' %></th>
+    <th><%= t 'models.proteus.identifier' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% proteus.each do |p| %>
+      <tr>
+        <td><%= link_to p.hostname, proteus_path(p) %></td>
+        <td><%= p.location.nil? ? '' : p.location.name %></td>
+        <td><%= p.status.nil? ? '' : p.status.name %></td>
+        <td><%= p.root_password %></td>
+        <td><%= link_to p.identifier, proteus_path(p) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,8 @@
+<article>
+  <h1>Proteus</h1>
+  <p><%= t 'views.proteus.index.description' %></p>
+
+  <p><%= link_to t('views.application.create', resource: 'Proteus'), new_proteus_path, class: 'button' %></p>
+
+  <%= render 'proteus/table', proteus: @proteus %>
+</article>

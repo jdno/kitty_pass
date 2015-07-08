@@ -4,5 +4,6 @@
 class Status < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
-  has_many :adonis
+  has_many :adonis,  inverse_of: :status
+  has_many :proteus, inverse_of: :status
 end

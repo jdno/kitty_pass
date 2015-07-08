@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :adonis, concerns: :networkable
   resources :locations
   resources :models, except: [:index, :show]
+  resources :proteus, concerns: :networkable
   resources :statuses, except: [:index, :show]
 end

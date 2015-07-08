@@ -62,6 +62,18 @@ en:
       name: 'Name'
       validations:
         incomplete: 'Both %{attribute1} and %{attribute2} must be entered.'
+    proteus:
+      hostname: 'Hostname'
+      identifier: 'Identifier'
+      inventory_number: 'Inventory number'
+      ipv4_gateway: 'IPv4 gateway'
+      ipv6_gateway: 'IPv6 gateway'
+      location: 'Location'
+      model: 'Model'
+      network_interface: 'Network interface'
+      network_interfaces: 'Network interfaces'
+      root_password: 'Root password'
+      status: 'Status'
     status:
       name: 'Name'
 
@@ -100,6 +112,12 @@ en:
         description: 'This page lists all servers that belong to this location.'
         no_adonis: 'This location has no Adonis servers associated with it. If you want to add Adonis to this
         location, edit the respective Adonis server and set the location.'
+    proteus:
+      index:
+        description: 'This page lists all Adonis servers.'
+      show:
+        confirm_delete: 'Please confirm that you want to delete %{hostname}.'
+        no_network_interfaces: 'This server does not have any network interfaces.'
     static_pages:
       settings:
         description: 'This page allows to manage a few resources and customize global configuration parameters.'

@@ -26,8 +26,9 @@ class Proteus < ActiveRecord::Base
 
   validate :ipv4_gateway_has_valid_format, :ipv6_gateway_has_valid_format
 
-  belongs_to :model
-  belongs_to :status
+  belongs_to :location, inverse_of: :proteus
+  belongs_to :model,    inverse_of: :proteus
+  belongs_to :status,   inverse_of: :proteus
 
   has_many :network_interfaces, as: :networkable, inverse_of: :networkable, dependent: :destroy
 

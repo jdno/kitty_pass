@@ -8,6 +8,7 @@ RSpec.describe Status, type: :model do
     it { should respond_to :name }
     it { should respond_to :description }
     it { should respond_to :adonis }
+    it { should respond_to :proteus }
     it { should be_valid }
   end
 

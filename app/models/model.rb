@@ -4,5 +4,6 @@
 class Model < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: true }
 
-  has_many :adonis
+  has_many :adonis,  inverse_of: :model
+  has_many :proteus, inverse_of: :model
 end

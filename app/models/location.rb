@@ -12,5 +12,6 @@ class Location < ActiveRecord::Base
             length: { in: NAME_LENGTH },
             format: { with: NAME_REGEX }
 
-  has_many :adonis, inverse_of: :location
+  has_many :adonis,   inverse_of: :location
+  has_many :proteus,  inverse_of: :location
 end

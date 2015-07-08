@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701121719) do
+ActiveRecord::Schema.define(version: 20150708083851) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150701121719) do
     t.integer  "status_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "location_id"
   end
 
   add_index "proteus", ["hostname"], name: "index_proteus_on_hostname", unique: true

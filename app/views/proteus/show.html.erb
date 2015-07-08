@@ -1,0 +1,139 @@
+<% provide :title, @proteus.hostname %>
+
+<article>
+  <h1><%= @proteus.hostname %></h1>
+  <p>
+    <%= link_to t('views.application.edit', resource: 'Proteus'), edit_proteus_path(@proteus), class: 'button' %>
+    <%= link_to t('views.application.delete', resource: 'Proteus'),
+                proteus_path(@proteus), confirm: t('views.proteus.show.confirm_delete', hostname: @proteus.hostname),
+                method: :delete, class: 'button' %>
+  </p>
+
+  <h3><%= t 'models.proteus.network_interfaces' %></h3>
+  <% if @proteus.network_interfaces.empty? %>
+      <div class="flash-notice">
+        <span>
+          <%= t 'views.proteus.show.no_network_interfaces' %>
+          <%= link_to new_proteus_network_interface_path @proteus do %>
+            <%= t('views.application.create', resource: 'network interface') %>
+          <% end %>
+        </span>
+      </div>
+  <% else %>
+      <table class="tables">
+        <thead>
+        <tr>
+          <th><%= t 'models.network_interfaces.name' %></th>
+          <th><%= t 'models.network_interfaces.mac_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv4_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv6_address' %></th>
+          <th><%= t 'views.application.options' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @proteus.network_interfaces.each do |interface| %>
+            <tr>
+              <td><%= interface.name %></td>
+              <td><%= interface.mac_address %></td>
+              <td>
+                <% if interface.ipv4_address.present? %>
+                    <%= interface.ipv4_address %> (<%= interface.ipv4_netmask%>)
+                <% end %>
+              </td>
+              <td>
+                <% if interface.ipv6_address.present? %>
+                    <%= interface.ipv6_address %>/<%= interface.ipv6_prefix %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_network_interface_path(interface), class: 'button' do %>
+                    <%= t 'views.application.buttons.edit' %>
+                <% end %>
+                <%= link_to t('views.application.buttons.delete'), network_interface_path(interface),
+                            confirm: t('views.application.confirm_delete',
+                                       resource: t('models.proteus.network_interface').downcase,
+                                       identifier: interface.name),
+                            method: :delete, class: 'button' %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <p>
+        <%= link_to edit_proteus_path(@proteus), class: 'button' do %>
+            <%= t 'views.application.create', resource: t('models.proteus.network_interface') %>
+        <% end %>
+      </p>
+  <% end %>
+
+  <h3>Gateways</h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.proteus.ipv4_gateway' %></th>
+      <th><%= t 'models.proteus.ipv6_gateway' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @proteus.ipv4_gateway %></td>
+      <td><%= @proteus.ipv6_gateway %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.application.passwords' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.proteus.root_password' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @proteus.root_password %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.application.details' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'views.application.key' %></th>
+      <th><%= t 'views.application.value' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>ID</td>
+      <td><%= @proteus.id %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.proteus.identifier' %></td>
+      <td><%= @proteus.identifier %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.proteus.inventory_number' %></td>
+      <td><%= @proteus.inventory_number %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.proteus.location' %></td>
+      <td><%= @proteus.loation.name if @proteus.location.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.proteus.model' %></td>
+      <td><%= @proteus.model.name if @proteus.model.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.proteus.status' %></td>
+      <td><%= @proteus.status.name if @proteus.status.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'views.application.last_updated' %></td>
+      <td><%= l @proteus.updated_at, format: :long %></td>
+    </tr>
+    </tbody>
+  </table>
+</article>
