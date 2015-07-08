@@ -23,6 +23,18 @@
         </span>
       </div>
   <% else %>
-      <%= render 'adonis/table', adonis: @adonis %>
+      <%= render 'adonis/table', adonis: @location.adonis %>
+  <% end %>
+
+  <h3>Proteus</h3>
+  <% if @location.proteus.empty? %>
+      <div class="flash-notice">
+        <span>
+          <%= t 'views.locations.show.no_proteus' %>
+          <%= link_to t('views.application.go_to', resource: 'Proteus'), proteus_index_path %>
+        </span>
+      </div>
+  <% else %>
+      <%= render 'proteus/table/table', proteus: @location.proteus %>
   <% end %>
 </article>

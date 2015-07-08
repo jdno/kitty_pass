@@ -110,8 +110,10 @@ en:
         title: 'Locations'
       show:
         description: 'This page lists all servers that belong to this location.'
-        no_adonis: 'This location has no Adonis servers associated with it. If you want to add Adonis to this
+        no_adonis: 'This location has no Adonis servers associated with it. If you want to add Adonis servers to this
         location, edit the respective Adonis server and set the location.'
+        no_proteus: 'This location has no Proteus servers associated with it. If you want to add Proteus servers to this
+        location, edit the respective Proteus server and set the location.'
     proteus:
       index:
         description: 'This page lists all Adonis servers.'

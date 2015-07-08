@@ -4,6 +4,7 @@ RSpec.describe 'locations/show.html.erb', type: :view do
   before :all do
     @location = create :location
     @adonis = 5.times.collect { create(:adonis, location: @location) }
+    @proteus = 5.times.collect { create(:proteus, location: @location) }
     assign :location, @location
   end
 
@@ -26,6 +27,12 @@ RSpec.describe 'locations/show.html.erb', type: :view do
   it 'lists the location\'s Adonis' do
     @location.adonis.each do |adonis|
       expect(rendered).to have_content adonis.hostname
+    end
+  end
+
+  it 'lists the location\'s Proteus' do
+    @location.proteus.each do |proteus|
+      expect(rendered).to have_content proteus.hostname
     end
   end
 end
