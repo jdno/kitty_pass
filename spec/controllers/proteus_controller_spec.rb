@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ProteusController, type: :controller do
+  sign_in_user
+
   describe 'GET #index' do
     before do
       @proteus = create :proteus

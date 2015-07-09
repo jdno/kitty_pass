@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Edit Adonis', type: :feature do
   before do
+    sign_in_user
     @adonis = create :adonis
     visit edit_adonis_path @adonis
   end

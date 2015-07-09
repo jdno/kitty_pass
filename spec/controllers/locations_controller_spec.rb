@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe LocationsController, type: :controller do
+  sign_in_user
+
   describe 'GET #index' do
     before do
       @locations = 5.times.collect { create :location }

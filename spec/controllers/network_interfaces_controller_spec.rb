@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe NetworkInterfacesController, type: :controller do
+  sign_in_user
+
   describe 'GET #new' do
     before do
       @adonis = create :adonis

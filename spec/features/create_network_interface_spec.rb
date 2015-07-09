@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Create network interface', type: :feature do
   before do
+    sign_in_user
     @adonis = create :adonis
     @network_interface = attributes_for :network_interface
     visit new_adonis_network_interface_path @adonis

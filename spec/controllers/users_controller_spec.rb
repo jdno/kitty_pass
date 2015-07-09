@@ -1,9 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
+  sign_in_user
+
   describe 'GET #index' do
     before do
-      @users = 5.times.collect { create :user }
+      @users = [User.first]
+      @users += 4.times.collect { create :user }
       get :index
     end
 

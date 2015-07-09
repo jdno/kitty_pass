@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Edit network interface', type: :feature do
   before do
+    sign_in_user
     @network_interface = create :network_interface
     visit edit_network_interface_path @network_interface
   end

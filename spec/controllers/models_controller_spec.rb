@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ModelsController, type: :controller do
+  sign_in_user
+
   describe 'GET #new' do
     before { get :new }
 

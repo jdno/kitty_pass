@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe StatusesController, type: :controller do
+  sign_in_user
+
   describe 'GET #new' do
     before { get :new }
 

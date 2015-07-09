@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe StaticPagesController, type: :controller do
+  sign_in_user
+
   describe 'GET #settings' do
     before do
       @models = 5.times.collect { create :model }
