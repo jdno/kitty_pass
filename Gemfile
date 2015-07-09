@@ -5,6 +5,8 @@ gem 'rails', '4.2.1'
 
 # Authentication is provided by devise
 gem 'devise', '~> 3.5.1'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 # Validate IP addresses
 gem 'ipaddress', '~> 0.8.0'
