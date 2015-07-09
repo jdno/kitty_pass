@@ -1,0 +1,37 @@
+<% provide :title, t('views.users.index.title') %>
+
+<article>
+  <h1><%= t 'views.users.index.title' %></h1>
+  <p><%= t 'views.users.index.description' %></p>
+
+  <p>
+    <%= link_to new_user_path, class: 'button' do %>
+        <%= t 'views.application.create', resource: t('views.application.user') %>
+    <% end %>
+  </p>
+
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.users.name' %></th>
+      <th><%= t 'models.users.email' %></th>
+      <th><%= t 'views.application.options' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to t('views.application.buttons.delete'), user_path(user),
+                        confirm: t('views.application.confirm_delete',
+                                   resource: t('views.application.user'),
+                                   identifier: user.name),
+                        method: :delete, class: 'button' %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</article>

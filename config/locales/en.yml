@@ -74,8 +74,13 @@ en:
       network_interfaces: 'Network interfaces'
       root_password: 'Root password'
       status: 'Status'
-    status:
+    statuses:
       name: 'Name'
+    users:
+      name: 'Name'
+      email: 'Email address'
+      password: 'Password'
+      password_confirmation: 'Password confirmation'
 
   views:
     application:
@@ -85,6 +90,8 @@ en:
         edit: 'Edit'
         new: 'New'
         save: 'Save'
+        sign_in: 'Sign in'
+        sign_out: 'Sign out'
       confirm_delete: 'Please confirm that you want to delete the %{resource} %{identifier}. The %{resource} cannot
       be restored!'
       create: 'Create new %{resource}'
@@ -97,6 +104,7 @@ en:
       options: 'Options'
       passwords: 'Passwords'
       server: 'Server'
+      user: 'User'
       value: 'Value'
     adonis:
       index:
@@ -126,3 +134,7 @@ en:
         models: The following list contains all available server models, allowing you to edit or delete them.
         statuses: 'The following list contains all available statuses, allowing you to edit or delete them.'
         title: 'Settings'
+    users:
+      index:
+        description: 'This page lists all users and allows you to create new ones.'
+        title: 'Users'

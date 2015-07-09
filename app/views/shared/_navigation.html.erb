@@ -1,8 +1,8 @@
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="logo">
-      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
-    </a>
+    <%= link_to root_path, class: 'logo' do %>
+        <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
+    <% end %>>
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
@@ -13,8 +13,22 @@
     </nav>
     <div class="navigation-tools">
       <ul class="navigation-menu show">
+        <li class="nav-link"><%= link_to t('views.users.index.title'), users_path %></li>
         <li class="nav-link"><%= link_to t('views.static_pages.settings.title'), settings_path %></li>
-        <li class="nav-link"><a href="javascript:void(0)">Sign in</a></li>
+        <li class="nav-link">
+          <% if user_signed_in? %>
+            <li class="nav-link more"><%= link_to current_user.name.split(' ').first %>
+              <ul class="submenu">
+                <li><%= link_to 'Change settings', edit_user_registration_path %></li>
+                <li>
+                  <%= link_to t('views.application.buttons.sign_out'), destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <%= link_to t('views.application.buttons.sign_in'), new_user_session_path %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
