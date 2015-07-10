@@ -5,4 +5,14 @@ class StaticPagesController < ApplicationController
     @models = Model.all
     @statuses = Status.all
   end
+
+  def statistics
+    @adonis_count = Adonis.count
+    @proteus_count = Proteus.count
+
+    @user_count = User.count
+
+    @models = Model.all
+    @statuses = Status.all
+  end
 end

@@ -134,6 +134,12 @@ en:
         models: The following list contains all available server models, allowing you to edit or delete them.
         statuses: 'The following list contains all available statuses, allowing you to edit or delete them.'
         title: 'Settings'
+      statistics:
+        description: 'Have fun with these stats about your deployment!'
+        models: 'Models'
+        resources: 'Resources'
+        statuses: 'Statuses'
+        title: 'Statistics'
     users:
       index:
         description: 'This page lists all users and allows you to create new ones.'
