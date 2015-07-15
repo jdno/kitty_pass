@@ -5,20 +5,46 @@ RSpec.describe AdonisController, type: :controller do
 
   describe 'GET #index' do
     before do
-      @adonis = create :adonis
-      get :index
+      @adonis = 5.times.collect { create :adonis }
     end
 
-    it 'assigns all Adonis servers to @adonis' do
-      expect(assigns(:adonis)).to match_array @adonis
+    describe 'without filters' do
+      before { get :index }
+
+      it 'assigns all Adonis servers to @adonis' do
+        expect(assigns(:adonis)).to match_array @adonis
+      end
+
+      it 'renders the #index template' do
+        expect(response).to render_template :index
+      end
+
+      it 'returns http success' do
+        expect(response.status).to eq 200
+      end
     end
 
-    it 'renders the #index template' do
-      expect(response).to render_template :index
-    end
+    describe 'with filters' do
+      before do
+        @model = create :model
+        @adonis[0..1].each do
+        |a| a.model = @model
+          a.save!
+        end
+        get :index, model_id: @model.id
+      end
 
-    it 'returns http success' do
-      expect(response.status).to eq 200
+      it 'assigns all Adonis servers matching the filter' do
+        expect(assigns(:adonis)).to match_array @adonis.select { |a| a.model == @model }
+      end
+
+      it 'renders the #index template' do
+        expect(response).to render_template :index
+      end
+
+      it 'returns http success' do
+        expect(response.status).to eq 200
+      end
     end
   end
 

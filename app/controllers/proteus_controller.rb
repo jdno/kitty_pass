@@ -32,7 +32,7 @@ class ProteusController < ApplicationController
   end
 
   def index
-    @proteus = Proteus.all
+    @proteus = Proteus.filter(params.slice(:model_id, :location_id, :status_id))
   end
 
   def new

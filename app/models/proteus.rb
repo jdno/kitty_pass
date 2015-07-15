@@ -10,6 +10,12 @@ require 'ipaddress'
 # The inventory number is typically assigned to a server by your organization, and is optional. Additionally, the
 # server's root password can be saved.
 class Proteus < ActiveRecord::Base
+  include Filterable
+
+  scope :location_id, -> (location_id) { where location_id: location_id }
+  scope :model_id, -> (model_id) { where model_id: model_id }
+  scope :status_id, -> (status_id) { where status_id: status_id }
+
   HOSTNAME_REGEX = /\A[a-z0-9\-\.]*\z/i
   IDENTIFIER_REGEX = /\A.*\z/i
 

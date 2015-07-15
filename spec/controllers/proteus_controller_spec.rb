@@ -5,20 +5,46 @@ RSpec.describe ProteusController, type: :controller do
 
   describe 'GET #index' do
     before do
-      @proteus = create :proteus
-      get :index
+      @proteus = 5.times.collect { create :proteus }
     end
 
-    it 'assigns all Proteus servers to @proteus' do
-      expect(assigns(:proteus)).to match_array @proteus
+    describe 'without filters' do
+      before { get :index }
+
+      it 'assigns all Proteus servers to @proteus' do
+        expect(assigns(:proteus)).to match_array @proteus
+      end
+
+      it 'renders the #index template' do
+        expect(response).to render_template :index
+      end
+
+      it 'returns http success' do
+        expect(response.status).to eq 200
+      end
     end
 
-    it 'renders the #index template' do
-      expect(response).to render_template :index
-    end
+    describe 'with filters' do
+      before do
+        @model = create :model
+        @proteus[0..1].each do
+        |a| a.model = @model
+          a.save!
+        end
+        get :index, model_id: @model.id
+      end
 
-    it 'returns http success' do
-      expect(response.status).to eq 200
+      it 'assigns all Proteus servers matching the filter' do
+        expect(assigns(:proteus)).to match_array @proteus.select { |a| a.model == @model }
+      end
+
+      it 'renders the #index template' do
+        expect(response).to render_template :index
+      end
+
+      it 'returns http success' do
+        expect(response.status).to eq 200
+      end
     end
   end
 

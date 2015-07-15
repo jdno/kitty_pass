@@ -32,7 +32,7 @@ class AdonisController < ApplicationController
   end
 
   def index
-    @adonis = Adonis.all
+    @adonis = Adonis.filter(params.slice(:model_id, :location_id, :status_id))
   end
 
   def new
