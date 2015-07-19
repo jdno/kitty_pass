@@ -9,7 +9,13 @@ class XHA < ActiveRecord::Base
   belongs_to :master, class_name: 'Adonis'
   belongs_to :slave,  class_name: 'Adonis'
 
-  has_one :network_interface, as: :networkable, inverse_of: :networkable, dependent: :destroy
+  has_many :network_interfaces, as: :networkable, inverse_of: :networkable, dependent: :destroy
+
+  after_create { self.network_interfaces << NetworkInterface.new(name: "xha_#{master.hostname}+#{slave.hostname}")}
+
+  def network_interface
+    network_interfaces.first
+  end
 
   private
 

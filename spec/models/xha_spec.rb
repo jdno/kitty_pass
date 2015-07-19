@@ -36,4 +36,13 @@ RSpec.describe XHA, type: :model do
 
     it { should_not be_valid }
   end
+
+  describe 'has a network interface' do
+    before { @xha.save! }
+
+    it 'after creation' do
+      expect(@xha.network_interface).to_not be_nil
+      expect(@xha.network_interface.name).to eq "xha_#{@xha.master.hostname}+#{@xha.slave.hostname}"
+    end
+  end
 end
