@@ -42,6 +42,10 @@ class Adonis < ActiveRecord::Base
     identifier.upcase!
   end
 
+  def xha
+    XHA.where('master_id = ? OR slave_id = ?', id, id).first
+  end
+
   private
 
   def ipv4_gateway_has_valid_format
