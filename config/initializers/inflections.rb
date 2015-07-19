@@ -15,12 +15,11 @@
 #   inflect.acronym 'RESTful'
 # end
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.uncountable %w(Adonis Proteus)
+  inflect.uncountable %w(Adonis Proteus XHA)
 
   inflect.acronym 'ID'
   inflect.acronym 'IPv4'
   inflect.acronym 'IPv6'
   inflect.acronym 'MAC'
   inflect.acronym 'XHA'
-  inflect.acronym 'XHAs'
 end

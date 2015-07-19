@@ -1,0 +1,16 @@
+<%= form_for xha ||= XHA.new do |f| %>
+    <% if xha.id %>
+        <%= f.label :id %>
+        <%= f.text_field :id, disabled: true %>
+    <% end %>
+
+    <%= f.label :master %>
+    <%= select_tag :master_id,
+                   options_from_collection_for_select(Adonis.all, 'id', 'hostname', xha.master ? xha.master.id : nil) %>
+
+    <%= f.label :slave %>
+    <%= select_tag :slave_id,
+                   options_from_collection_for_select(Adonis.all, 'id', 'hostname', xha.slave ? xha.slave.id : nil) %>
+
+    <%= f.submit t 'views.application.buttons.save' %>
+<% end %>

@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   get 'settings',   to: 'static_pages#settings',   as: 'settings'
   get 'statistics', to: 'static_pages#statistics', as: 'statistics'
 
-  resources :adonis, concerns: :networkable
-  resources :locations
-  resources :models, except: [:index, :show]
+  resources :adonis,  concerns: :networkable
   resources :proteus, concerns: :networkable
+
+  resources :locations
+  resources :models,   except: [:index, :show]
   resources :statuses, except: [:index, :show]
-  resources :users, only: [:create, :destroy, :index, :new]
+  resources :users,    only: [:create, :destroy, :index, :new]
+  resources :xha,      except: :index, concerns: :networkable
 end
