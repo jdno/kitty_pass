@@ -7,7 +7,7 @@ RSpec.describe XHA, type: :model do
   context 'validations' do
     it { should respond_to :master }
     it { should respond_to :slave}
-    it { should respond_to :network_interface }
+    it { should respond_to :network_interfaces }
 
     it { should be_valid }
   end

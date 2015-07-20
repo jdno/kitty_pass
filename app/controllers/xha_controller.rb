@@ -55,6 +55,6 @@ class XHAController < ApplicationController
   end
 
   def xha_params
-    params.permit(:master_id, :slave_id)
+    params.require(:xha).permit(:master_id, :slave_id)
   end
 end
