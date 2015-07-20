@@ -20,7 +20,7 @@
         </span>
       </div>
   <% else %>
-      <table class="tables">
+      <table class="tables" style="table-layout: auto">
         <thead>
         <tr>
           <th><%= t 'models.network_interfaces.name' %></th>
@@ -42,7 +42,7 @@
               </td>
               <td>
                 <% if interface.ipv6_address.present? %>
-                    <%= interface.ipv6_address %>/<%= interface.ipv6_prefix %>
+                    <%= interface.ipv6_address %> / <%= interface.ipv6_prefix %>
                 <% end %>
               </td>
               <td>
