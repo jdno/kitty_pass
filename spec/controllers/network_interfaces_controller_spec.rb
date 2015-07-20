@@ -63,8 +63,8 @@ RSpec.describe NetworkInterfacesController, type: :controller do
         expect(flash[:error]).to_not be_nil
       end
 
-      it 'redirects to the Adonis index page' do
-        expect(response).to redirect_to adonis_index_path
+      it 'redirects to the root path' do
+        expect(response).to redirect_to root_path
       end
     end
   end
