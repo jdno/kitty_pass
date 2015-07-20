@@ -9,7 +9,7 @@ class NetworkInterfacesController < ApplicationController
 
     if @network_interface.save
       flash[:success] = t 'controllers.application.create.successful', resource: t('models.adonis.network_interface')
-      redirect_to adonis_path @networkable
+      redirect_networkable
     else
       flash[:error] = @network_interface.errors.full_messages
       render :new
@@ -26,7 +26,7 @@ class NetworkInterfacesController < ApplicationController
       flash[:error] = @network_interface.errors.full_messages
     end
 
-    redirect_to adonis_path @network_interface.networkable
+    redirect_networkable
   end
 
   def edit
@@ -45,7 +45,7 @@ class NetworkInterfacesController < ApplicationController
 
     if @network_interface.update_attributes network_interface_params
       flash[:success] = t 'controllers.application.update.successful', identifier: @network_interface.name
-      redirect_to adonis_path @network_interface.networkable
+      redirect_networkable
     else
       flash[:error] = @network_interface.errors.full_messages
       redirect_to edit_network_interface_path @network_interface
@@ -55,7 +55,8 @@ class NetworkInterfacesController < ApplicationController
   private
 
   def initialize_networkable_or_redirect
-    @networkable = Adonis.find_by_id params[:adonis_id]
+    @networkable = Adonis.find_by_id(params[:adonis_id]) || Proteus.find_by_id(params[:proteus_id]) ||
+        XHA.find_by_id(params[:xha_id])
     redirect_networkable_not_found unless @networkable
   end
 
@@ -67,6 +68,20 @@ class NetworkInterfacesController < ApplicationController
   def redirect_network_interface_not_found
     flash[:error] = t 'controllers.application.access.not_found', resource: t('models.adonis.network_interface')
     redirect_to request.referer || root_path
+  end
+
+  def redirect_networkable
+    case @network_interface.networkable_type
+      when 'Adonis'
+        redirect_to adonis_path @network_interface.networkable
+      when 'Proteus'
+        redirect_to proteus_path @network_interface.networkable
+      when 'XHA'
+        redirect_to adonis_path @network_interface.networkable.master
+      else
+        flash[:error] = t 'controllers.application.access.not_found', resource: t('models.adonis.network_interface')
+        redirect_to root_path
+    end
   end
 
   def redirect_networkable_not_found

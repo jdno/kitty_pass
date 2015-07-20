@@ -8,8 +8,10 @@
           <%= f.text_field :id, disabled: true %>
       <% end %>
 
-      <%= f.label :networkable, t('views.application.server') %>
-      <%= f.text_field :networkable, value: @networkable.hostname, disabled: true %>
+      <% unless @networkable.is_a? XHA %>
+          <%= f.label :networkable, t('views.application.server') %>
+          <%= f.text_field :networkable, value: @networkable.hostname, disabled: true %>
+      <% end %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>

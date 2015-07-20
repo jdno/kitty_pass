@@ -41,8 +41,8 @@ RSpec.describe XHA, type: :model do
     before { @xha.save! }
 
     it 'after creation' do
-      expect(@xha.network_interface).to_not be_nil
-      expect(@xha.network_interface.name).to eq "xha_#{@xha.master.hostname}+#{@xha.slave.hostname}"
+      expect(@xha.network_interfaces.count).to eq 1
+      expect(@xha.network_interfaces.first.name).to eq 'XHA'
     end
   end
 end
