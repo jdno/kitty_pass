@@ -56,7 +56,7 @@ class NetworkInterfacesController < ApplicationController
 
   def initialize_networkable_or_redirect
     @networkable = Adonis.find_by_id(params[:adonis_id]) || Proteus.find_by_id(params[:proteus_id]) ||
-        XHA.find_by_id(params[:xha_id])
+                   XHA.find_by_id(params[:xha_id])
     redirect_networkable_not_found unless @networkable
   end
 
@@ -72,20 +72,19 @@ class NetworkInterfacesController < ApplicationController
 
   def redirect_networkable
     case @network_interface.networkable_type
-      when 'Adonis'
-        redirect_to adonis_path @network_interface.networkable
-      when 'Proteus'
-        redirect_to proteus_path @network_interface.networkable
-      when 'XHA'
-        redirect_to adonis_path @network_interface.networkable.master
-      else
-        flash[:error] = t 'controllers.application.access.not_found', resource: t('models.adonis.network_interface')
-        redirect_to root_path
+    when 'Adonis'
+      redirect_to adonis_path @network_interface.networkable
+    when 'Proteus'
+      redirect_to proteus_path @network_interface.networkable
+    when 'XHA'
+      redirect_to adonis_path @network_interface.networkable.master
+    else
+      redirect_networkable_not_found
     end
   end
 
   def redirect_networkable_not_found
     flash[:error] = t 'controllers.application.access.not_found', resource: t('views.application.server')
-    redirect_to adonis_index_path
+    redirect_to root_path
   end
 end

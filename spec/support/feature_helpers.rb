@@ -6,6 +6,7 @@ RSpec.configure do |config|
   end
 end
 
+# This module contains useful methods for feature specs.
 module FeatureHelpers
   def sign_in_user
     user = FactoryGirl.create(:user)

@@ -2,7 +2,7 @@ require 'factory_girl'
 
 namespace :dev do
   desc 'Fill the development database with dummy data'
-  task :create_data => :environment do
+  task create_data: :environment do
     Dir[Rails.root.join('spec/factories/**/*.rb')].each { |f| require f }
 
     locations = 5.times.collect { FactoryGirl.create :location }

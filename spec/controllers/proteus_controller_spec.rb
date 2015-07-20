@@ -27,8 +27,8 @@ RSpec.describe ProteusController, type: :controller do
     describe 'with filters' do
       before do
         @model = create :model
-        @proteus[0..1].each do
-        |a| a.model = @model
+        @proteus[0..1].each do |a|
+          a.model = @model
           a.save!
         end
         get :index, model_id: @model.id

@@ -11,12 +11,12 @@ class XHA < ActiveRecord::Base
 
   has_many :network_interfaces, as: :networkable, inverse_of: :networkable, dependent: :destroy
 
-  after_create { self.network_interfaces << NetworkInterface.new(name: 'XHA')}
+  after_create { network_interfaces << NetworkInterface.new(name: 'XHA') }
 
   private
 
   def adonis_has_no_xha(adonis)
-    adonis.xha.nil? || adonis.xha.id == self.id
+    adonis.xha.nil? || adonis.xha.id == id
   end
 
   def adonis_have_no_xha_already
