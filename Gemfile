@@ -40,6 +40,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Use Capistrano to deploy the app
+gem 'capistrano', '~> 3.4'
+gem 'capistrano-bundler', '~> 1.1'
+gem 'capistrano-rails', '~> 1.1'
+gem 'capistrano-rbenv', github: 'capistrano/rbenv'
+
 group :production do
   # Use Postgres as the database for Active Record
   gem 'pg'
