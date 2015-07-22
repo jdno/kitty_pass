@@ -1,15 +1,15 @@
 # Customize your installation of KittyPass with these options.
 
 # The URL that points to your KittyPass instance
-KITTYPASS_URL = http://kittypass.example.com
+KITTYPASS_URL: http://kittypass.example.com
 
 # The email address that will be shown when KittyPass sends mails, e.g. to reset a password
-KITTYPASS_MAIL =
+KITTYPASS_MAIL:
 
 # Database credentials
-KITTYPASS_DB_DATABASE =
-KITTYPASS_DB_PASSWORD =
-KITTYPASS_DB_USERNAME =
+KITTYPASS_DB_DATABASE:
+KITTYPASS_DB_PASSWORD:
+KITTYPASS_DB_USERNAME:
 
 # Rails' secret key (string with 128 characters by default)
-SECRET_KEY_BASE =
+SECRET_KEY_BASE:
