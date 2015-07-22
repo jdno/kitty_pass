@@ -46,6 +46,9 @@ gem 'capistrano-bundler', '~> 1.1'
 gem 'capistrano-rails', '~> 1.1'
 gem 'capistrano-rbenv', github: 'capistrano/rbenv'
 
+# Configure the environment with Figaro
+gem 'figaro', '~> 1.1'
+
 group :production do
   gem 'mysql2'
 end
