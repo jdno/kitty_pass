@@ -1,0 +1,14 @@
+<%= form_for model ||= Model.new do |f| %>
+    <% if model.id %>
+        <%= f.label :id %>
+        <%= f.text_field :id, disabled: true %>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :eol, t('models.models.eol') %>
+    <%= f.text_field :eol %>
+
+    <%= f.submit t 'views.application.buttons.save' %>
+<% end %>

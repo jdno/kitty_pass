@@ -1,0 +1,22 @@
+<table class="tables">
+  <thead>
+  <tr>
+    <th><%= t 'models.adonis.hostname' %></th>
+    <th><%= t 'models.adonis.location' %></th>
+    <th><%= t 'models.adonis.status' %></th>
+    <th><%= t 'models.adonis.root_password' %></th>
+    <th><%= t 'models.adonis.identifier' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% adonis.each do |a| %>
+      <tr>
+        <td><%= link_to a.hostname, adonis_path(a) %></td>
+        <td><%= a.location.nil? ? '' : a.location.name %></td>
+        <td><%= a.status.nil? ? '' : a.status.name %></td>
+        <td><%= a.root_password %></td>
+        <td><%= link_to a.identifier, adonis_path(a) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

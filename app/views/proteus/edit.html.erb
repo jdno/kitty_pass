@@ -1,0 +1,6 @@
+<% provide :title, t('views.application.edit', resource: @proteus.hostname) %>
+
+<article>
+  <h1><%= t 'views.application.edit', resource: @proteus.hostname %></h1>
+  <%= render 'proteus/form', proteus: @proteus %>
+</article>

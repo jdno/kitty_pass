@@ -1,0 +1,8 @@
+<article>
+  <h1>Adonis</h1>
+  <p><%= t 'views.adonis.index.description' %></p>
+
+  <p><%= link_to t('views.application.create', resource: 'Adonis'), new_adonis_path, class: 'button' %></p>
+
+  <%= render 'adonis/table', adonis: @adonis %>
+</article>

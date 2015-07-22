@@ -1,0 +1,9 @@
+# Configure rbenv for this deployment
+set :rbenv_type, :user
+set :rbenv_ruby, '2.2.0'
+
+# Set stage
+set :stage, :production
+
+# Change this to point to your server
+server '127.0.0.1', user: 'deploy', roles: %w{web app db}

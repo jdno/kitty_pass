@@ -1,0 +1,36 @@
+<% provide :title, t('views.application.edit', resource: t('models.adonis.network_interface')) %>
+
+<article>
+  <h1><%= t 'views.application.edit', resource: t('models.adonis.network_interface') %></h1>
+  <%= form_for @network_interface do |f| %>
+      <% if @network_interface.id %>
+          <%= f.label :id %>
+          <%= f.text_field :id, disabled: true %>
+      <% end %>
+
+      <% unless @network_interface.networkable.class.equal? XHA %>
+        <%= f.label :networkable, t('views.application.server') %>
+        <%= f.text_field :networkable, value: @network_interface.networkable.hostname, disabled: true %>
+      <% end %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :mac_address %>
+      <%= f.text_field :mac_address %>
+
+      <%= f.label :ipv4_address %>
+      <%= f.text_field :ipv4_address %>
+
+      <%= f.label :ipv4_netmask %>
+      <%= f.text_field :ipv4_netmask %>
+
+      <%= f.label :ipv6_address %>
+      <%= f.text_field :ipv6_address %>
+
+      <%= f.label :ipv6_prefix %>
+      <%= f.text_field :ipv6_prefix %>
+
+      <%= f.submit t 'views.application.buttons.save' %>
+  <% end %>
+</article>

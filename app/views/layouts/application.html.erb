@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Sanchez:400italic,400' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<%= render partial: 'shared/navigation' %>
+
+<div id="content">
+  <%= render partial: 'shared/flash' %>
+
+  <%= yield %>
+
+  <%= debug(params) if Rails.env.development? %>
+</div>
+
+</body>
+</html>

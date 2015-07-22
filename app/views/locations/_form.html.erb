@@ -1,0 +1,11 @@
+<%= form_for location ||= Location.new do |f| %>
+    <% if location.id %>
+        <%= f.label :id %>
+        <%= f.text_field :id, disabled: true %>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit t 'views.application.buttons.save' %>
+<% end %>

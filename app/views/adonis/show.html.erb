@@ -1,0 +1,226 @@
+<% provide :title, @adonis.hostname %>
+
+<article>
+  <h1><%= @adonis.hostname %></h1>
+  <p>
+    <%= link_to t('views.application.edit', resource: 'Adonis'), edit_adonis_path(@adonis), class: 'button' %>
+    <%= link_to t('views.application.delete', resource: 'Adonis'),
+                adonis_path(@adonis), confirm: t('views.adonis.show.confirm_delete', hostname: @adonis.hostname),
+                method: :delete, class: 'button' %>
+  </p>
+
+  <h3><%= t 'models.adonis.network_interfaces' %></h3>
+  <% if @adonis.network_interfaces.empty? %>
+      <div class="flash-notice">
+        <span>
+          <%= t 'views.adonis.show.no_network_interfaces' %>
+          <%= link_to new_adonis_network_interface_path @adonis do %>
+            <%= t('views.application.create', resource: 'network interface') %>
+          <% end %>
+        </span>
+      </div>
+  <% else %>
+      <table class="tables" style="table-layout: auto">
+        <thead>
+        <tr>
+          <th><%= t 'models.network_interfaces.name' %></th>
+          <th><%= t 'models.network_interfaces.mac_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv4_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv6_address' %></th>
+          <th><%= t 'views.application.options' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @adonis.network_interfaces.each do |interface| %>
+            <tr>
+              <td><%= interface.name %></td>
+              <td><%= interface.mac_address %></td>
+              <td>
+                <% if interface.ipv4_address.present? %>
+                    <%= interface.ipv4_address %> (<%= interface.ipv4_netmask%>)
+                <% end %>
+              </td>
+              <td>
+                <% if interface.ipv6_address.present? %>
+                    <%= interface.ipv6_address %> / <%= interface.ipv6_prefix %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_network_interface_path(interface), class: 'button' do %>
+                    <%= t 'views.application.buttons.edit' %>
+                <% end %>
+                <%= link_to t('views.application.buttons.delete'), network_interface_path(interface),
+                            confirm: t('views.application.confirm_delete',
+                                       resource: t('models.adonis.network_interface').downcase,
+                                       identifier: interface.name),
+                            method: :delete, class: 'button' %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <p>
+        <%= link_to new_adonis_network_interface_path(@adonis), class: 'button' do %>
+            <%= t 'views.application.create', resource: t('models.adonis.network_interface') %>
+        <% end %>
+      </p>
+  <% end %>
+
+  <h3>XHA</h3>
+  <% if @adonis.xha.nil? %>
+      <div class="flash-notice">
+        <span>
+          <%= t 'views.adonis.show.no_xha' %>
+          <%= link_to new_xha_path do %>
+            <%= t('views.application.create', resource: 'XHA') %>
+          <% end %>
+        </span>
+      </div>
+  <% else %>
+      <table class="tables">
+        <thead>
+        <tr>
+          <th><%= t 'models.xha.master' %></th>
+          <th><%= t 'models.xha.slave' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= link_to @adonis.xha.master.hostname, adonis_path(@adonis.xha.master) %></td>
+          <td><%= link_to @adonis.xha.slave.hostname, adonis_path(@adonis.xha.slave) %></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <p>
+        <%= link_to edit_xha_path(@adonis.xha), class: 'button' do %>
+            <%= t 'views.application.buttons.replace' %>
+        <% end %>
+        <%= link_to t('views.application.delete', resource: 'XHA'),
+                    xha_path(@adonis.xha), confirm: t('views.application.confirm_delete', resource: 'XHA',
+                                                      identifier: @adonis.xha.id),
+                    method: :delete, class: 'button' %>
+      </p>
+
+      <table class="tables" style="table-layout: auto">
+        <thead>
+        <tr>
+          <th><%= t 'models.network_interfaces.name' %></th>
+          <th><%= t 'models.network_interfaces.mac_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv4_address' %></th>
+          <th><%= t 'models.network_interfaces.ipv6_address' %></th>
+          <th><%= t 'views.application.options' %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @adonis.xha.network_interfaces.each do |interface| %>
+            <tr>
+              <td><%= interface.name %></td>
+              <td><%= interface.mac_address %></td>
+              <td>
+                <% if interface.ipv4_address.present? %>
+                    <%= interface.ipv4_address %> (<%= interface.ipv4_netmask%>)
+                <% end %>
+              </td>
+              <td>
+                <% if interface.ipv6_address.present? %>
+                    <%= interface.ipv6_address %> / <%= interface.ipv6_prefix %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to edit_network_interface_path(interface), class: 'button' do %>
+                    <%= t 'views.application.buttons.edit' %>
+                <% end %>
+                <%= link_to t('views.application.buttons.delete'), network_interface_path(interface),
+                            confirm: t('views.application.confirm_delete',
+                                       resource: t('models.adonis.network_interface').downcase,
+                                       identifier: interface.name),
+                            method: :delete, class: 'button' %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+
+      <p>
+        <%= link_to new_xha_network_interface_path(@adonis.xha), class: 'button' do %>
+            <%= t 'views.application.create', resource: t('models.adonis.network_interface') %>
+        <% end %>
+      </p>
+  <% end %>
+
+  <h3>Gateways</h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.adonis.ipv4_gateway' %></th>
+      <th><%= t 'models.adonis.ipv6_gateway' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @adonis.ipv4_gateway %></td>
+      <td><%= @adonis.ipv6_gateway %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.application.passwords' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'models.adonis.root_password' %></th>
+      <th><%= t 'models.adonis.admin_password' %></th>
+      <th><%= t 'models.adonis.deploy_password' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= @adonis.root_password %></td>
+      <td><%= @adonis.admin_password %></td>
+      <td><%= @adonis.deploy_password %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.application.details' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th><%= t 'views.application.key' %></th>
+      <th><%= t 'views.application.value' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>ID</td>
+      <td><%= @adonis.id %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.identifier' %></td>
+      <td><%= @adonis.identifier %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.inventory_number' %></td>
+      <td><%= @adonis.inventory_number %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.location' %></td>
+      <td><%= @adonis.location.name if @adonis.location.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.model' %></td>
+      <td><%= @adonis.model.name if @adonis.model.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.status' %></td>
+      <td><%= @adonis.status.name if @adonis.status.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'views.application.last_updated' %></td>
+      <td><%= l @adonis.updated_at, format: :long %></td>
+    </tr>
+    </tbody>
+  </table>
+</article>

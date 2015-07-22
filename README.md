@@ -1,56 +1,92 @@
 # KittyPass
 
-**KittyPass** is a little web-based password manager for *BlueCat Networks'* DHCP/DNS server. It is designed for teams
-that don't want to use a full-blown CMDB, but need to share passwords and other important information about their
-servers.
+[![Build Status](https://travis-ci.org/KittyPass/kitty_pass.svg?branch=master)](https://travis-ci.org/KittyPass/kitty_pass)
 
-One speciality of **KittyPass** is its API, which enables other tools to update the data automatically.
+**KittyPass** is a little web-based password manager for [BlueCat Networks'](https://www.bluecatnetworks.com) DHCP/DNS
+server. It is designed for teams that don't want to use a full-blown CMDB, but need to share passwords and other
+important information about their servers.
 
-# Usage
-
-**KittyPass** is a *Ruby on Rails* application, which can be customized to fit your needs.
-
-## Customization
-
-The best way to customize **KittyPass** is to fork the project, and periodically pull updates into your fork. This way,
-you can customize the application to your hearts content, and still benefit from the updates to the origin.
-
-In the code, important configuration parameters are marked with a ```# TODO``` tag. Search for it, and you will find all
-places where customization is necessary or recommended.
-
-To keep your secrets and keys private, this application relies heavily on environment variables. Depending on your
-deployment, you either want to provide those environment variables, or overwrite the respective configuration files
-during the deployment. Using Capistrano, this would be done with shared configuration files.
+## Requirements
+ 
+- Ruby 2.x.x
+- Web + application server for [Ruby on Rails](https://rubyonrails.org) (e.g.
+[Phusion Passenger](http://https://www.phusionpassenger.com))
+- MySQL database
 
 ## Installation
 
-**KittyPass** has a dummy configuration for Capistrano, which is set up to make use of *.rbenv* to select the right Ruby
-version. You do not have to use Capistrano, but we recommend it for most environments.
+**KittyPass** comes with [Capistrano](http://capistranorb.com), which makes it really easy to deploy the application 
+to your server. If you are already familiar with [Ruby on Rails](https://rubyonrails.org) deployments, this should be
+pretty straight forward. Otherwise, we recommend you checkout any tutorial that explains how to deploy a
+[Ruby on Rails](https://rubyonrails.org) application using the operating system and web server of your choosing.
 
-**Please note that we cannot help you with the installation of KittyPass. We try to provide as much instructions and
-examples as we can, but we are simply not able to support every user individually.**
+### Preparations
+
+For the following files, templates are provided in the files' location. Look there for any files ending with
+```.example```.
+
+On your local machine, create these files by copying & renaming the provided templates:
+
+- _/config/deploy.rb_
+- _/config/deploy/production.rb_
+
+Copy the these files into [Capistrano's](http://capistranorb.com) shared folder on your server:
+
+- _/config/application.yml_
+- _/config/database.yml_
+
+Change these files' configuration parameters to suite your needs.
+
+### Deployment
+
+After configuring [Capistrano's](http://capistranorb.com), run the following command:
+
+    bundle exec cap production deploy
+    
+[Capistrano's](http://capistranorb.com) will now try to install and start the application. If an error occurs, check
+the provided output for its reason.
+
+### Create first user
+
+On the server, start the _Rails Console_ with this command:
+
+    rails c
+    
+Now create your first user:
+
+    > user = User.new(name: 'John Doe', email: 'john.doe@example.com', password: 'password', password_confirmation: 'password')
+    > user.confirm
+    > user.save!
+    
+With this user, you can log into the web interface and start using the application.
 
 ## Updates
 
-Depending on your installation, you can either update the application with Capistrano, or manually. In both cases keep
-in mind that you may need to run migrations.
+Depending on your installation, you can either update the application with [Capistrano](http://capistranorb.com), or
+manually. In both cases keep in mind that you may need to run migrations.
 
-# Development
+## Support
 
-This still is a work-in-progress, and not yet stable. This is also true for the documentation, which will be extended
-during development.
+If you encounter a bug or have a feature request, please open an issue on GitHub:
 
-## Contribute
+[https://github.com/KittyPass/kitty_pass](https://github.com/KittyPass/kitty_pass)
 
-For all contributions, an issue must exist first. If you want to implement a new feature, please open an issue first to
-discuss what you want to do and why. If your idea does not fit the vision for **KittyPass**, we reserve the right to
-decline your change. So please, discuss it with us before doing any work that may not even be merged (you are free to
-implement whatever feature your want in your own fork, though)!
+## Development
 
-If you want to fix a bug, check the issue tracker for open tasks or submit your own.
+**KittyPass** is still in active development, and right now only available as a _beta version_! To protect yourself 
+against accidental loss of data, e.g. due to a bug, please back up your database regularly.
 
-Contributions must go through GitHub's pull requests, so fork the project, implement your changes and open a pull
-request.
+### Versioning
+
+This application tries to follow the guidelines of [semantic versioning](http://semver.org). Given the version number 
+MAJOR.MINOR.PATCH, we increment the:
+
+MAJOR version when we make incompatible API changes,
+MINOR version when we add functionality in a backwards-compatible manner, and
+PATCH version when we make backwards-compatible bug fixes.
+
+Please note that during development (i.e. versions 0.x.x), breaking changes can occur with ANY update! Only starting 
+with version 1.x.x, the application's API should be considered stable.
 
 # License
 
@@ -60,7 +96,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

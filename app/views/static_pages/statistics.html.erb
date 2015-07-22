@@ -1,0 +1,100 @@
+<% provide :title, t('views.static_pages.statistics.title') %>
+
+<article>
+  <h1><%= t 'views.static_pages.statistics.title' %></h1>
+  <p><%= t 'views.static_pages.statistics.description' %></p>
+
+  <h3><%= t 'views.static_pages.statistics.resources' %></h3>
+  <table class="tables">
+    <thead>
+    <tr>
+      <th># Adonis</th>
+      <th># Proteus</th>
+      <th># <%= t 'views.application.user' %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= link_to @adonis_count, adonis_index_path %></td>
+      <td><%= link_to @proteus_count, proteus_index_path %></td>
+      <td><%= link_to @user_count, users_path %></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.static_pages.statistics.models' %></h3>
+  <table class="tables">
+    <thead>
+    <th><%= t 'models.adonis.model' %></th>
+    <th># Adonis</th>
+    <th># Proteus</th>
+    </thead>
+    <tbody>
+    <% @models.each do |model| %>
+        <tr>
+          <td><%= model.name %></td>
+          <td>
+            <% unless model.adonis.count == 0 || @adonis_count == 0 %>
+                <%= link_to adonis_index_path(model_id: model.id) do %>
+                    <div class="progress-bar-indication">
+                      <span class="meter" style="width: <%= model.adonis.count * 100 / @adonis_count %>%">
+                        <p><%= model.adonis.count %></p>
+                      </span>
+                    </div>
+                <% end %>
+            <% end %>
+          </td>
+          <td>
+            <% unless model.proteus.count == 0 || @proteus_count == 0 %>
+                <%= link_to proteus_index_path(model_id: model.id) do %>
+                    <div class="progress-bar-indication">
+                      <span class="meter" style="width: <%= model.proteus.count * 100 / @proteus_count %>%">
+                        <p><%= model.proteus.count %></p>
+                      </span>
+                    </div>
+                <% end %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h3><%= t 'views.static_pages.statistics.statuses' %></h3>
+  <table class="tables">
+    <thead>
+    <th><%= t 'models.adonis.status' %></th>
+    <th># Adonis</th>
+    <th># Proteus</th>
+    </thead>
+    <tbody>
+    <% @statuses.each do |status| %>
+        <tr>
+          <td><%= status.name %></td>
+          <td>
+            <% unless status.adonis.count == 0 || @adonis_count == 0 %>
+                <%= link_to adonis_index_path(status_id: status.id) do %>
+                    <div class="progress-bar-indication">
+                      <span class="meter" style="width: <%= status.adonis.count * 100 / @adonis_count %>%">
+                        <p><%= status.adonis.count %></p>
+                      </span>
+                    </div>
+                <% end %>
+            <% end %>
+          </td>
+          <td>
+            <% unless status.proteus.count == 0 || @proteus_count == 0 %>
+                <%= link_to proteus_index_path(status_id: status.id) do %>
+                    <div class="progress-bar-indication">
+                      <span class="meter" style="width: <%= status.proteus.count * 100 / @proteus_count %>%">
+                        <p><%= status.proteus.count %></p>
+                      </span>
+                    </div>
+                <% end %>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</article>

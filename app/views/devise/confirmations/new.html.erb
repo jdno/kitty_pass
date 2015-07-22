@@ -1,0 +1,18 @@
+<% provide :title, t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %>
+
+<article>
+  <h1><%= t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></h1>
+  <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+
+      <div><%= f.submit t('.resend_confirmation_instructions', :default => 'Resend confirmation instructions') %></div>
+  <% end %>
+
+</article>
+
+<%= render "devise/shared/links" %>

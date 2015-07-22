@@ -1,0 +1,20 @@
+<% provide :title, t('views.application.create', resource: t('views.application.user')) %>
+
+<article>
+  <h1><%= t 'views.application.create', resource: t('views.application.user') %></h1>
+  <%= form_for User.new do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit t 'views.application.buttons.save' %>
+  <% end %>
+</article>
