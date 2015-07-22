@@ -6,4 +6,3 @@ rvm:
 bundler_args: --without production
 before_script:
   - cp config/database.yml.example config/database.yml
-  

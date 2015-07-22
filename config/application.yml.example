@@ -4,7 +4,7 @@
 KITTYPASS_URL: http://kittypass.example.com
 
 # The email address that will be shown when KittyPass sends mails, e.g. to reset a password
-KITTYPASS_MAIL:
+KITTYPASS_MAIL: 'please-change-me-at-config-initializers-devise@example.com'
 
 # Database credentials
 KITTYPASS_DB_DATABASE:
