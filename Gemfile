@@ -46,6 +46,10 @@ gem 'capistrano-bundler', '~> 1.1'
 gem 'capistrano-rails', '~> 1.1'
 gem 'capistrano-rbenv', github: 'capistrano/rbenv'
 
+group :production do
+  gem 'mysql2'
+end
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
