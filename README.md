@@ -22,8 +22,7 @@ pretty straight forward. Otherwise, we recommend you checkout any tutorial that 
 
 ### Preparations
 
-For the following files, templates are provided in the files' location. Look there for any files ending with
-```.example```.
+For the following files, templates are provided in the files' location. Look there for any files ending with `.example`.
 
 On your local machine, create these files by copying & renaming the provided templates:
 
