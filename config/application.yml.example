@@ -1,7 +1,11 @@
 # Customize your installation of KittyPass with these options.
 
 # The URL that points to your KittyPass instance
-KITTYPASS_URL: http://kittypass.example.com
+KITTYPASS_URL: 'https://kittypass.example.com'
+
+# If you want to use a relative URL for your deployment, e.g. https://example.com/kitty_pass, uncomment the following
+# directive and configure the relative URL root you want to use.
+# KITTYPASS_RELATIVE_URL: '/kitty_pass'
 
 # The email address that will be shown when KittyPass sends mails, e.g. to reset a password
 KITTYPASS_MAIL: 'please-change-me-at-config-initializers-devise@example.com'
