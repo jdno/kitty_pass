@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719152805) do
+ActiveRecord::Schema.define(version: 20150719071215) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150719152805) do
     t.string   "ipv4_gateway"
     t.string   "ipv6_gateway"
     t.integer  "location_id"
-    t.integer  "xha_cluster_id"
   end
 
   add_index "adonis", ["hostname"], name: "index_adonis_on_hostname", unique: true
@@ -128,10 +127,5 @@ ActiveRecord::Schema.define(version: 20150719152805) do
   end
 
   add_index "xha", ["master_id", "slave_id"], name: "index_xha_on_master_id_and_slave_id"
-
-  create_table "xha_clusters", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end
