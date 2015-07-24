@@ -1,6 +1,6 @@
 # KittyPass
 
-[![Build Status](https://travis-ci.org/KittyPass/kitty_pass.svg?branch=master)](https://travis-ci.org/KittyPass/kitty_pass)
+[![Build Status](https://travis-ci.org/jdno/kitty_pass.svg?branch=master)](https://travis-ci.org/jdno/kitty_pass)
 
 **KittyPass** is a little web-based password manager for [BlueCat Networks'](https://www.bluecatnetworks.com) DHCP/DNS
 server. It is designed for teams that don't want to use a full-blown CMDB, but need to share passwords and other
