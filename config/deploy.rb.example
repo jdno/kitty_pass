@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'kitty_pass'
-set :repo_url, 'https://github.com/KittyPass/kitty_pass'
+set :repo_url, 'https://github.com/jdno/kitty_pass'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
