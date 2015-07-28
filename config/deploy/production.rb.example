@@ -1,6 +1,6 @@
 # Configure rbenv for this deployment
 set :rbenv_type, :user
-set :rbenv_ruby, '2.2.0'
+set :rbenv_ruby, '2.2.1'
 
 # Set stage
 set :stage, :production
