@@ -80,9 +80,9 @@ against accidental loss of data, e.g. due to a bug, please back up your database
 This application tries to follow the guidelines of [semantic versioning](http://semver.org). Given the version number 
 MAJOR.MINOR.PATCH, we increment the:
 
-MAJOR version when we make incompatible API changes,
-MINOR version when we add functionality in a backwards-compatible manner, and
-PATCH version when we make backwards-compatible bug fixes.
+- MAJOR version when we make incompatible API changes,
+- MINOR version when we add functionality in a backwards-compatible manner, and
+- PATCH version when we make backwards-compatible bug fixes.
 
 Please note that during development (i.e. versions 0.x.x), breaking changes can occur with ANY update! Only starting 
 with version 1.x.x, the application's API should be considered stable.
