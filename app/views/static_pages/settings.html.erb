@@ -25,9 +25,9 @@
                 <%= t 'views.application.buttons.edit' %>
             <% end %>
             <%= link_to t('views.application.buttons.delete'), model_path(model),
-                        confirm: t('views.application.confirm_delete',
+                        data: { confirm: t('views.application.confirm_delete',
                                    resource: t('models.adonis.model').downcase,
-                                   identifier: model.name),
+                                   identifier: model.name) },
                         method: :delete, class: 'button-delete' %>
           </td>
         </tr>
@@ -56,9 +56,9 @@
                 <%= t 'views.application.buttons.edit' %>
             <% end %>
             <%= link_to t('views.application.buttons.delete'), status_path(status),
-                        confirm: t('views.application.confirm_delete',
+                        data: { confirm: t('views.application.confirm_delete',
                                    resource: t('models.adonis.status').downcase,
-                                   identifier: status.name),
+                                   identifier: status.name) },
                         method: :delete, class: 'button-delete' %>
           </td>
         </tr>

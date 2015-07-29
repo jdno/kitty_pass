@@ -25,9 +25,9 @@
           <td><%= user.email %></td>
           <td>
             <%= link_to t('views.application.buttons.delete'), user_path(user),
-                        confirm: t('views.application.confirm_delete',
+                        data: { confirm: t('views.application.confirm_delete',
                                    resource: t('views.application.user'),
-                                   identifier: user.name),
+                                   identifier: user.name) },
                         method: :delete, class: 'button-delete' %>
           </td>
         </tr>

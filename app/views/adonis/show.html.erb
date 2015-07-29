@@ -97,9 +97,9 @@
         <%= link_to edit_xha_path(@adonis.xha), class: 'button' do %>
             <%= t 'views.application.buttons.replace' %>
         <% end %>
-        <%= link_to t('views.application.delete', resource: 'XHA'),
-                    xha_path(@adonis.xha), confirm: t('views.application.confirm_delete', resource: 'XHA',
-                                                      identifier: @adonis.xha.id),
+        <%= link_to t('views.application.delete', resource: 'XHA'), xha_path(@adonis.xha),
+                    data: { confirm: t('views.application.confirm_delete', resource: 'XHA',
+                                                      identifier: @adonis.xha.id) },
                     method: :delete, class: 'button-delete' %>
       </p>
 
@@ -133,9 +133,9 @@
                     <%= t 'views.application.buttons.edit' %>
                 <% end %>
                 <%= link_to t('views.application.buttons.delete'), network_interface_path(interface),
-                            confirm: t('views.application.confirm_delete',
+                            data: { confirm: t('views.application.confirm_delete',
                                        resource: t('models.adonis.network_interface').downcase,
-                                       identifier: interface.name),
+                                       identifier: interface.name) },
                             method: :delete, class: 'button-delete' %>
               </td>
             </tr>
