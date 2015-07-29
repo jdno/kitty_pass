@@ -6,7 +6,7 @@
     <%= link_to t('views.application.edit', resource: 'Adonis'), edit_adonis_path(@adonis), class: 'button' %>
     <%= link_to t('views.application.delete', resource: 'Adonis'),
                 adonis_path(@adonis), confirm: t('views.adonis.show.confirm_delete', hostname: @adonis.hostname),
-                method: :delete, class: 'button' %>
+                method: :delete, class: 'button-delete' %>
   </p>
 
   <h3><%= t 'models.adonis.network_interfaces' %></h3>
@@ -53,7 +53,7 @@
                             confirm: t('views.application.confirm_delete',
                                        resource: t('models.adonis.network_interface').downcase,
                                        identifier: interface.name),
-                            method: :delete, class: 'button' %>
+                            method: :delete, class: 'button-delete' %>
               </td>
             </tr>
         <% end %>
@@ -100,7 +100,7 @@
         <%= link_to t('views.application.delete', resource: 'XHA'),
                     xha_path(@adonis.xha), confirm: t('views.application.confirm_delete', resource: 'XHA',
                                                       identifier: @adonis.xha.id),
-                    method: :delete, class: 'button' %>
+                    method: :delete, class: 'button-delete' %>
       </p>
 
       <table class="tables" style="table-layout: auto">
@@ -136,7 +136,7 @@
                             confirm: t('views.application.confirm_delete',
                                        resource: t('models.adonis.network_interface').downcase,
                                        identifier: interface.name),
-                            method: :delete, class: 'button' %>
+                            method: :delete, class: 'button-delete' %>
               </td>
             </tr>
         <% end %>

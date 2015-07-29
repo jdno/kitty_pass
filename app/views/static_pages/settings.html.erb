@@ -28,7 +28,7 @@
                         confirm: t('views.application.confirm_delete',
                                    resource: t('models.adonis.model').downcase,
                                    identifier: model.name),
-                        method: :delete, class: 'button' %>
+                        method: :delete, class: 'button-delete' %>
           </td>
         </tr>
     <% end %>
@@ -59,7 +59,7 @@
                         confirm: t('views.application.confirm_delete',
                                    resource: t('models.adonis.status').downcase,
                                    identifier: status.name),
-                        method: :delete, class: 'button' %>
+                        method: :delete, class: 'button-delete' %>
           </td>
         </tr>
     <% end %>

@@ -17,8 +17,11 @@
 @import "base/base";
 @import "neat";
 
+@import "variables";
+
 @import "article";
 @import "flash";
+@import "mixins";
 @import "navigation";
 @import "progress_bars";
 @import "tables";
@@ -30,7 +33,11 @@ article {
 }
 
 .button {
-  @include button;
+  @include button($action-color)
+}
+
+.button-delete {
+  @include button($delete-color);
 }
 
 #content {
