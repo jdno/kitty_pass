@@ -1,0 +1,3 @@
+.ruby-gemset    export-ignore
+.ruby-version   export-ignore
+spec/           export-ignore

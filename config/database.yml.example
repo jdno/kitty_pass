@@ -26,6 +26,6 @@ production:
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  database: <%= ENV["KITTYPASS_DB_DATABASE"] %>
-  username: <%= ENV["KITTYPASS_DB_USERNAME"] %>
-  password: <%= ENV["KITTYPASS_DB_PASSWORD"] %>
+  database:
+  username:
+  password:

@@ -1,6 +1,6 @@
 # KittyPass
 
-[![Build Status](https://travis-ci.org/KittyPass/kitty_pass.svg?branch=master)](https://travis-ci.org/KittyPass/kitty_pass)
+[![Build Status](https://travis-ci.org/jdno/kitty_pass.svg?branch=master)](https://travis-ci.org/jdno/kitty_pass)
 
 **KittyPass** is a little web-based password manager for [BlueCat Networks'](https://www.bluecatnetworks.com) DHCP/DNS
 server. It is designed for teams that don't want to use a full-blown CMDB, but need to share passwords and other
@@ -19,6 +19,12 @@ important information about their servers.
 to your server. If you are already familiar with [Ruby on Rails](https://rubyonrails.org) deployments, this should be
 pretty straight forward. Otherwise, we recommend you checkout any tutorial that explains how to deploy a
 [Ruby on Rails](https://rubyonrails.org) application using the operating system and web server of your choosing.
+
+### Clone repository
+
+The first step is to clone the repository to your local machine:
+
+    git clone https://github.com/jdno/kitty_pass.git
 
 ### Preparations
 
@@ -49,7 +55,7 @@ the provided output for its reason.
 
 On the server, start the _Rails Console_ with this command:
 
-    rails c
+    RAILS_ENV=production bundle exec rails console
     
 Now create your first user:
 
@@ -64,11 +70,15 @@ With this user, you can log into the web interface and start using the applicati
 Depending on your installation, you can either update the application with [Capistrano](http://capistranorb.com), or
 manually. In both cases keep in mind that you may need to run migrations.
 
+To update the application with [Capistrano](http://capistranorb.com), simply run the command
+
+    bundle exec cap production deploy
+
 ## Support
 
 If you encounter a bug or have a feature request, please open an issue on GitHub:
 
-[https://github.com/KittyPass/kitty_pass](https://github.com/KittyPass/kitty_pass)
+[https://github.com/jdno/kitty_pass](https://github.com/jdno/kitty_pass)
 
 ## Development
 
@@ -80,9 +90,9 @@ against accidental loss of data, e.g. due to a bug, please back up your database
 This application tries to follow the guidelines of [semantic versioning](http://semver.org). Given the version number 
 MAJOR.MINOR.PATCH, we increment the:
 
-MAJOR version when we make incompatible API changes,
-MINOR version when we add functionality in a backwards-compatible manner, and
-PATCH version when we make backwards-compatible bug fixes.
+- MAJOR version when we make incompatible API changes,
+- MINOR version when we add functionality in a backwards-compatible manner, and
+- PATCH version when we make backwards-compatible bug fixes.
 
 Please note that during development (i.e. versions 0.x.x), breaking changes can occur with ANY update! Only starting 
 with version 1.x.x, the application's API should be considered stable.

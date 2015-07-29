@@ -8,10 +8,10 @@
         <%= t 'views.application.edit', resource: t('models.adonis.location') %>
     <% end %>
     <%= link_to t('views.application.delete', resource: t('models.adonis.location')), location_path(@location),
-                confirm: t('views.application.confirm_delete',
+                data: { confirm: t('views.application.confirm_delete',
                            resource: t('models.adonis.location'),
-                           identifier: @location.name),
-                method: :delete, class: 'button' %>
+                           identifier: @location.name) },
+                method: :delete, class: 'button-delete' %>
   </p>
 
   <h3>Adonis</h3>

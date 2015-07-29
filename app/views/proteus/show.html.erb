@@ -6,7 +6,7 @@
     <%= link_to t('views.application.edit', resource: 'Proteus'), edit_proteus_path(@proteus), class: 'button' %>
     <%= link_to t('views.application.delete', resource: 'Proteus'),
                 proteus_path(@proteus), confirm: t('views.proteus.show.confirm_delete', hostname: @proteus.hostname),
-                method: :delete, class: 'button' %>
+                method: :delete, class: 'button-delete' %>
   </p>
 
   <h3><%= t 'models.proteus.network_interfaces' %></h3>
@@ -50,10 +50,10 @@
                     <%= t 'views.application.buttons.edit' %>
                 <% end %>
                 <%= link_to t('views.application.buttons.delete'), network_interface_path(interface),
-                            confirm: t('views.application.confirm_delete',
+                            data: { confirm: t('views.application.confirm_delete',
                                        resource: t('models.proteus.network_interface').downcase,
-                                       identifier: interface.name),
-                            method: :delete, class: 'button' %>
+                                       identifier: interface.name) },
+                            method: :delete, class: 'button-delete' %>
               </td>
             </tr>
         <% end %>
