@@ -20,6 +20,12 @@ to your server. If you are already familiar with [Ruby on Rails](https://rubyonr
 pretty straight forward. Otherwise, we recommend you checkout any tutorial that explains how to deploy a
 [Ruby on Rails](https://rubyonrails.org) application using the operating system and web server of your choosing.
 
+### Clone repository
+
+The first step is to clone the repository to your local machine:
+
+    git clone https://github.com/jdno/kitty_pass.git
+
 ### Preparations
 
 For the following files, templates are provided in the files' location. Look there for any files ending with `.example`.
@@ -49,7 +55,7 @@ the provided output for its reason.
 
 On the server, start the _Rails Console_ with this command:
 
-    rails c
+    RAILS_ENV=production bundle exec rails console
     
 Now create your first user:
 
@@ -64,11 +70,15 @@ With this user, you can log into the web interface and start using the applicati
 Depending on your installation, you can either update the application with [Capistrano](http://capistranorb.com), or
 manually. In both cases keep in mind that you may need to run migrations.
 
+To update the application with [Capistrano](http://capistranorb.com), simply run the command
+
+    bundle exec cap production deploy
+
 ## Support
 
 If you encounter a bug or have a feature request, please open an issue on GitHub:
 
-[https://github.com/KittyPass/kitty_pass](https://github.com/KittyPass/kitty_pass)
+[https://github.com/jdno/kitty_pass](https://github.com/jdno/kitty_pass)
 
 ## Development
 
