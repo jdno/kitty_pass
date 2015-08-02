@@ -5,11 +5,11 @@
     <% end %>
 
     <%= f.label :master %>
-    <%= select_tag :master_id,
+    <%= f.select :master_id,
                    options_from_collection_for_select(Adonis.all, 'id', 'hostname', xha.master ? xha.master.id : nil) %>
 
     <%= f.label :slave %>
-    <%= select_tag :slave_id,
+    <%= f.select :slave_id,
                    options_from_collection_for_select(Adonis.all, 'id', 'hostname', xha.slave ? xha.slave.id : nil) %>
 
     <%= f.submit t 'views.application.buttons.save' %>

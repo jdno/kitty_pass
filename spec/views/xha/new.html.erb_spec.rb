@@ -6,11 +6,11 @@ RSpec.describe 'xha/new.html.erb', type: :view do
   end
 
   it 'provides a selection to set the master' do
-    expect(rendered).to have_selector 'select#master_id'
+    expect(rendered).to have_selector 'select#xha_master_id'
   end
 
   it 'provides a selection to set the slave' do
-    expect(rendered).to have_selector 'select#slave_id'
+    expect(rendered).to have_selector 'select#xha_slave_id'
   end
 
   it 'provides a save button' do
