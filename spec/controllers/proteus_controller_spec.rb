@@ -103,6 +103,33 @@ RSpec.describe ProteusController, type: :controller do
         expect { post :create, proteus: attributes_for(:proteus) }.to change { Proteus.count }.by 1
       end
 
+      it 'saves the location' do
+        location = create :location
+        proteus = attributes_for :proteus
+        proteus[:location_id] = location.id
+
+        post :create, proteus: proteus
+        expect(Proteus.find_by_hostname!(proteus[:hostname]).location.id).to eq location.id
+      end
+
+      it 'saves the model' do
+        model = create :model
+        proteus = attributes_for :proteus
+        proteus[:model_id] = model.id
+
+        post :create, proteus: proteus
+        expect(Proteus.find_by_hostname!(proteus[:hostname]).model.id).to eq model.id
+      end
+
+      it 'saves the status' do
+        status = create :status
+        proteus = attributes_for :proteus
+        proteus[:status_id] = status.id
+
+        post :create, proteus: proteus
+        expect(Proteus.find_by_hostname!(proteus[:hostname]).status.id).to eq status.id
+      end
+
       it 'adds a message to the flash' do
         post :create, proteus: attributes_for(:proteus)
         expect(flash[:success]).to_not be_nil
@@ -178,11 +205,32 @@ RSpec.describe ProteusController, type: :controller do
 
       describe 'with valid updates' do
         before do
-          patch :update, id: @proteus.id, proteus: { hostname: 'changed' }
+          @location = create :location
+          @model = create :model
+          @status = create :status
+          proteus_hash = {
+              hostname:    'changed',
+              location_id: @location.id,
+              model_id:    @model.id,
+              status_id:   @status.id
+          }
+          patch :update, id: @proteus.id, proteus: proteus_hash
         end
 
-        it 'updates the server' do
+        it 'updates the hostname' do
           expect(Proteus.find(@proteus.id).hostname).to eq 'changed'
+        end
+
+        it 'updates the location' do
+          expect(@proteus.reload.location.id).to eq @location.id
+        end
+
+        it 'updates the model' do
+          expect(@proteus.reload.model.id).to eq @model.id
+        end
+
+        it 'updates the status' do
+          expect(@proteus.reload.status.id).to eq @status.id
         end
 
         it 'adds a message to the flash' do
