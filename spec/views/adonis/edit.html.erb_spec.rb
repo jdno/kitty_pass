@@ -23,15 +23,15 @@ RSpec.describe 'adonis/edit.html.erb', type: :view do
   end
 
   it 'provides a selection to change the model' do
-    expect(rendered).to have_selector 'select#model_id'
+    expect(rendered).to have_selector 'select#adonis_model_id'
   end
 
   it 'provides a selection to change the status' do
-    expect(rendered).to have_selector 'select#status_id'
+    expect(rendered).to have_selector 'select#adonis_status_id'
   end
 
   it 'provides a selection to change the location' do
-    expect(rendered).to have_selector 'select#location_id'
+    expect(rendered).to have_selector 'select#adonis_location_id'
   end
 
   it 'provides a text field to change the IPv4 gateway' do
