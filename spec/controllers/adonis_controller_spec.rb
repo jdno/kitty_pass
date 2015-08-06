@@ -103,6 +103,33 @@ RSpec.describe AdonisController, type: :controller do
         expect { post :create, adonis: attributes_for(:adonis) }.to change { Adonis.count }.by 1
       end
 
+      it 'saves the location' do
+        location = create :location
+        adonis = attributes_for :adonis
+        adonis[:location_id] = location.id
+
+        post :create, adonis: adonis
+        expect(Adonis.find_by_hostname!(adonis[:hostname]).location.id).to eq location.id
+      end
+
+      it 'saves the model' do
+        model = create :model
+        adonis = attributes_for :adonis
+        adonis[:model_id] = model.id
+
+        post :create, adonis: adonis
+        expect(Adonis.find_by_hostname!(adonis[:hostname]).model.id).to eq model.id
+      end
+
+      it 'saves the status' do
+        status = create :status
+        adonis = attributes_for :adonis
+        adonis[:status_id] = status.id
+
+        post :create, adonis: adonis
+        expect(Adonis.find_by_hostname!(adonis[:hostname]).status.id).to eq status.id
+      end
+
       it 'adds a message to the flash' do
         post :create, adonis: attributes_for(:adonis)
         expect(flash[:success]).to_not be_nil
@@ -178,11 +205,51 @@ RSpec.describe AdonisController, type: :controller do
 
       describe 'with valid updates' do
         before do
-          patch :update, id: @adonis.id, adonis: { hostname: 'changed' }
+          @location = create :location
+          @model = create :model
+          @status = create :status
+          adonis_hash = {
+            hostname:    'changed',
+            location_id: @location.id,
+            model_id:    @model.id,
+            status_id:   @status.id
+          }
+
+          patch :update, id: @adonis.id, adonis: adonis_hash
         end
 
-        it 'updates the server' do
+        it 'updates the hostname' do
           expect(Adonis.find(@adonis.id).hostname).to eq 'changed'
+        end
+
+        it 'updates the location' do
+          expect(@adonis.reload.location.id).to eq @location.id
+        end
+
+        it 'updates the model' do
+          expect(@adonis.reload.model.id).to eq @model.id
+        end
+
+        it 'updates the status' do
+          expect(@adonis.reload.status.id).to eq @status.id
+        end
+
+        it 'updates the model' do
+          model = create :model
+          adonis = attributes_for :adonis
+          adonis[:model_id] = model.id
+
+          post :create, adonis: adonis
+          expect(Adonis.find_by_hostname!(adonis[:hostname]).model.id).to eq model.id
+        end
+
+        it 'updates the status' do
+          status = create :status
+          adonis = attributes_for :adonis
+          adonis[:status_id] = status.id
+
+          post :create, adonis: adonis
+          expect(Adonis.find_by_hostname!(adonis[:hostname]).status.id).to eq status.id
         end
 
         it 'adds a message to the flash' do

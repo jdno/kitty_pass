@@ -60,7 +60,7 @@ class ProteusController < ApplicationController
 
   def proteus_params
     params.require(:proteus).permit(:hostname, :identifier, :inventory_number, :ipv4_gateway, :ipv6_gateway,
-                                    :model_id, :root_password, :serial_number, :status_id)
+                                    :location_id, :model_id, :root_password, :serial_number, :status_id)
   end
 
   def redirect_proteus_not_found

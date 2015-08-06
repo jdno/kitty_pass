@@ -60,7 +60,8 @@ class AdonisController < ApplicationController
 
   def adonis_params
     params.require(:adonis).permit(:admin_password, :deploy_password, :hostname, :identifier, :inventory_number,
-                                   :ipv4_gateway, :ipv6_gateway, :model_id, :root_password, :serial_number, :status_id)
+                                   :ipv4_gateway, :ipv6_gateway, :location_id, :model_id, :root_password,
+                                   :serial_number, :status_id)
   end
 
   def redirect_adonis_not_found
