@@ -4,6 +4,9 @@ RSpec.describe 'adonis/show.html.erb', type: :view do
   before :all do
     @adonis = create :adonis
     @adonis.network_interfaces << create(:network_interface)
+    @adonis.location = create :location
+    @adonis.model = create :model
+    @adonis.status = create :status
     assign :adonis, @adonis
   end
 
@@ -74,15 +77,23 @@ RSpec.describe 'adonis/show.html.erb', type: :view do
   end
 
   it 'lists the server\'s location' do
-    expect(rendered).to have_content @adonis.location.name if @adonis.location.present?
+    expect(rendered).to have_content @adonis.location.name
   end
 
   it 'lists the server\'s model' do
-    expect(rendered).to have_content @adonis.model.name if @adonis.model.present?
+    expect(rendered).to have_content @adonis.model.name
+  end
+
+  it 'lists the server\'s SNMP community' do
+    expect(rendered).to have_content @adonis.snmp_community
   end
 
   it 'lists the server\'s status' do
-    expect(rendered).to have_content @adonis.status.name if @adonis.status.present?
+    expect(rendered).to have_content @adonis.status.name
+  end
+
+  it 'lists the server\'s Syslog server' do
+    expect(rendered).to have_content @adonis.syslog_server
   end
 
   it 'lists the server\'s last update' do

@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Adonis, type: :model do
-  before { @adonis = build :adonis }
+  before do
+    @adonis = build :adonis
+    @invald_ipv4_addresses = %w(1 2.2 3.3.3 4.4.4.4. 5.5.5.5.5 a.b.c.d 1-2-3-4)
+  end
   subject { @adonis }
 
   context 'validations' do
@@ -14,6 +17,8 @@ RSpec.describe Adonis, type: :model do
     it { should respond_to :deploy_password }
     it { should respond_to :ipv4_gateway }
     it { should respond_to :ipv6_gateway }
+    it { should respond_to :snmp_community }
+    it { should respond_to :syslog_server }
 
     it { should respond_to :location }
     it { should respond_to :model }
@@ -106,7 +111,7 @@ RSpec.describe Adonis, type: :model do
 
   describe 'with an IPv4 gateway in invalid format' do
     it 'should not be valid' do
-      invalid_gateways = %w(1 2.2 3.3.3 4.4.4.4. 5.5.5.5.5 a.b.c.d 1-2-3-4)
+      invalid_gateways = @invald_ipv4_addresses
       invalid_gateways.each do |gateway|
         @adonis.ipv4_gateway = gateway
         expect(@adonis).to_not be_valid
@@ -124,6 +129,21 @@ RSpec.describe Adonis, type: :model do
       invalid_gateways = %w(ff02::ff::1)
       invalid_gateways.each do |gateway|
         @adonis.ipv6_gateway = gateway
+        expect(@adonis).to_not be_valid
+      end
+    end
+  end
+
+  describe 'without a syslog server' do
+    before { @adonis.syslog_server = '' }
+    it { should be_valid }
+  end
+
+  describe 'with a syslog server\'s IP address in invalid format' do
+    it 'should not be valid' do
+      invalid_syslogs = @invald_ipv4_addresses
+      invalid_syslogs.each do |syslog|
+        @adonis.syslog_server = syslog
         expect(@adonis).to_not be_valid
       end
     end

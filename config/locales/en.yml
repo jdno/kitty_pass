@@ -47,7 +47,9 @@ en:
       network_interface: 'Network interface'
       network_interfaces: 'Network interfaces'
       root_password: 'Root password'
+      snmp_community: 'SNMP community'
       status: 'Status'
+      syslog_server: 'Syslog server'
     locations:
       name: 'Name'
     models:

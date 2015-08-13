@@ -25,5 +25,7 @@ FactoryGirl.define do
     ipv6_gateway                'ac5f:d696:3807:1d72::7d2b:e1df'
     root_password               'root'
     serial_number               { generate :serial_number }
+    snmp_community              'public'
+    syslog_server               '192.168.1.24'
   end
 end

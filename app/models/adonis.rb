@@ -8,6 +8,8 @@ require 'ipaddress'
 # The serial number is assigned to a server by BlueCat, and is useful for service requests or hardware replacements.
 # The inventory number is typically assigned to a server by your organization, and is optional.
 # Three password fields exist, one for the root account, the admin account and one for the deploy account.
+# The field 'Syslog server' contains the IP address of the Adonis' primary Syslog server.
+# The SNMP community can be set if SNMPv1 or SNMPv2c is used.
 class Adonis < ActiveRecord::Base
   include Filterable
 
@@ -29,7 +31,7 @@ class Adonis < ActiveRecord::Base
   validates :root_password,
             presence: true
 
-  validate :ipv4_gateway_has_valid_format, :ipv6_gateway_has_valid_format
+  validate :ipv4_gateway_has_valid_format, :ipv6_gateway_has_valid_format, :syslog_server_has_valid_format
 
   belongs_to :location, inverse_of: :adonis
   belongs_to :model, inverse_of: :adonis
@@ -60,5 +62,12 @@ class Adonis < ActiveRecord::Base
     errors.add :ipv6_gateway, I18n.t('models.application.invalid_format',
                                      attribute: I18n.t('models.adonis.ipv6_gateway'),
                                      expected: 'ac5f:d696:3807:1d72::7d2b:e1df')
+  end
+
+  def syslog_server_has_valid_format
+    return if syslog_server.blank? || IPAddress.valid_ipv4?(syslog_server)
+    errors.add :syslog_server, I18n.t('models.application.invalid_format',
+                                      attribute: I18n.t('models.adonis.syslog_server'),
+                                      expected: '192.168.1.1')
   end
 end
