@@ -24,7 +24,12 @@ unless Rails.env.production?
         proteus.save!
       end
 
-      u = User.create!(name: 'Admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+      u = User.create!(
+        name: 'Admin',
+        email: 'admin@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
       u.confirm
     end
   end

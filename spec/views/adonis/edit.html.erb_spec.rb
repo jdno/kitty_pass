@@ -15,7 +15,7 @@ RSpec.describe 'adonis/edit.html.erb', type: :view do
   end
 
   it 'provides a text field to change the identifier' do
-    expect(rendered).to have_field 'Identifier' # TODO , with: @adonis.identifier
+    expect(rendered).to have_field 'Identifier' # TODO: , with: @adonis.identifier
   end
 
   it 'provides a text field to change the inventory number' do

@@ -15,6 +15,6 @@ RSpec.describe 'models/edit.html.erb', type: :view do
   end
 
   it 'provides a text field to change the EOL date' do
-    expect(rendered).to have_field 'End of life' # TODO , with: @model.eol
+    expect(rendered).to have_field 'End of life' # TODO: , with: @model.eol
   end
 end
