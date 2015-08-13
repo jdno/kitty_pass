@@ -10,3 +10,7 @@ env:
 
 before_script:
   - cp config/database.yml.example config/database.yml
+
+addons:
+  code_climate:
+    repo_token: b2f10f0e0563351f33a081d9d2e2033c65ef594b7fe44d206c4bbd56ce9a810d
