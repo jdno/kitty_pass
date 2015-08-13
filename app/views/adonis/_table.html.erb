@@ -12,8 +12,16 @@
   <% adonis.each do |a| %>
       <tr>
         <td><%= link_to a.hostname, adonis_path(a) %></td>
-        <td><%= a.location.nil? ? '' : a.location.name %></td>
-        <td><%= a.status.nil? ? '' : a.status.name %></td>
+        <td>
+          <% if a.location.present? %>
+            <%= link_to a.location.name, adonis_index_path(location_id: a.location.id) %>
+          <% end %>
+        </td>
+        <td>
+          <% if a.status.present? %>
+              <%= link_to a.status.name, adonis_index_path(status_id: a.status.id) %>
+          <% end %>
+        </td>
         <td><%= a.root_password %></td>
         <td><%= link_to a.identifier, adonis_path(a) %></td>
       </tr>

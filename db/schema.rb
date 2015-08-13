@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719071215) do
+ActiveRecord::Schema.define(version: 20150813090320) do
 
   create_table "adonis", force: :cascade do |t|
     t.string   "hostname"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150719071215) do
     t.string   "ipv4_gateway"
     t.string   "ipv6_gateway"
     t.integer  "location_id"
+    t.string   "snmp_community"
+    t.string   "syslog_server"
   end
 
   add_index "adonis", ["hostname"], name: "index_adonis_on_hostname", unique: true

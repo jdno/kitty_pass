@@ -234,24 +234,6 @@ RSpec.describe AdonisController, type: :controller do
           expect(@adonis.reload.status.id).to eq @status.id
         end
 
-        it 'updates the model' do
-          model = create :model
-          adonis = attributes_for :adonis
-          adonis[:model_id] = model.id
-
-          post :create, adonis: adonis
-          expect(Adonis.find_by_hostname!(adonis[:hostname]).model.id).to eq model.id
-        end
-
-        it 'updates the status' do
-          status = create :status
-          adonis = attributes_for :adonis
-          adonis[:status_id] = status.id
-
-          post :create, adonis: adonis
-          expect(Adonis.find_by_hostname!(adonis[:hostname]).status.id).to eq status.id
-        end
-
         it 'adds a message to the flash' do
           expect(flash[:success]).to_not be_nil
         end

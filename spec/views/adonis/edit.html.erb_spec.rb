@@ -15,7 +15,7 @@ RSpec.describe 'adonis/edit.html.erb', type: :view do
   end
 
   it 'provides a text field to change the identifier' do
-    expect(rendered).to have_field 'Identifier' # TODO , with: @adonis.identifier
+    expect(rendered).to have_field 'Identifier' # TODO: , with: @adonis.identifier
   end
 
   it 'provides a text field to change the inventory number' do
@@ -52,6 +52,14 @@ RSpec.describe 'adonis/edit.html.erb', type: :view do
 
   it 'provides a text field to change the deploy password' do
     expect(rendered).to have_field 'Deploy password', with: @adonis.deploy_password
+  end
+
+  it 'provides a text field to change the SNMP community' do
+    expect(rendered).to have_field 'SNMP community', with: @adonis.snmp_community
+  end
+
+  it 'provides a text field to change the Syslog server' do
+    expect(rendered).to have_field 'Syslog server', with: @adonis.syslog_server
   end
 
   it 'provides a save button' do

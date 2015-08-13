@@ -209,10 +209,10 @@ RSpec.describe ProteusController, type: :controller do
           @model = create :model
           @status = create :status
           proteus_hash = {
-              hostname:    'changed',
-              location_id: @location.id,
-              model_id:    @model.id,
-              status_id:   @status.id
+            hostname:    'changed',
+            location_id: @location.id,
+            model_id:    @model.id,
+            status_id:   @status.id
           }
           patch :update, id: @proteus.id, proteus: proteus_hash
         end

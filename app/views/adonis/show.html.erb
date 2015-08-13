@@ -214,8 +214,16 @@
       <td><%= @adonis.model.name if @adonis.model.present? %></td>
     </tr>
     <tr>
+      <td><%= t 'models.adonis.snmp_community' %></td>
+      <td><%= @adonis.snmp_community %></td>
+    </tr>
+    <tr>
       <td><%= t 'models.adonis.status' %></td>
       <td><%= @adonis.status.name if @adonis.status.present? %></td>
+    </tr>
+    <tr>
+      <td><%= t 'models.adonis.syslog_server' %></td>
+      <td><%= @adonis.syslog_server %></td>
     </tr>
     <tr>
       <td><%= t 'views.application.last_updated' %></td>
