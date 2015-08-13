@@ -44,5 +44,11 @@
     <%= f.label :deploy_password %>
     <%= f.text_field :deploy_password %>
 
+    <%= f.label :snmp_community %>
+    <%= f.text_field :snmp_community %>
+
+    <%= f.label :syslog_server %>
+    <%= f.text_field :syslog_server %>
+
     <%= f.submit t 'views.application.buttons.save' %>
 <% end %>

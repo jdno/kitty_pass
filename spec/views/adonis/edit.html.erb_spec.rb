@@ -54,6 +54,14 @@ RSpec.describe 'adonis/edit.html.erb', type: :view do
     expect(rendered).to have_field 'Deploy password', with: @adonis.deploy_password
   end
 
+  it 'provides a text field to change the SNMP community' do
+    expect(rendered).to have_field 'SNMP community', with: @adonis.snmp_community
+  end
+
+  it 'provides a text field to change the Syslog server' do
+    expect(rendered).to have_field 'Syslog server', with: @adonis.syslog_server
+  end
+
   it 'provides a save button' do
     expect(rendered).to have_button t('views.application.buttons.save'), adonis_path(@adonis)
   end
