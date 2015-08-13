@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.0.0
   - 2.1.6
-  - 2.2.1
+  - 2.2.2
 bundler_args: --without production
 
 env:
@@ -13,4 +13,4 @@ before_script:
 
 addons:
   code_climate:
-    repo_token: b2f10f0e0563351f33a081d9d2e2033c65ef594b7fe44d206c4bbd56ce9a810d
+    repo_token: a6036ed6b584d96f883c1ee0fc2b646b5aece52b1700c7bc6e7ebab5f2752fea
